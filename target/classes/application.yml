@@ -1,0 +1,94 @@
+spring:
+  application:
+    name: auto-insurance-api
+    
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+        
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+  security:
+    jwt:
+      secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+      expiration: 86400000 # 24 hours
+      
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+        
+logging:
+  level:
+    com.autoinsurance: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# SpringDoc OpenAPI Configuration
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    url: /v3/api-docs
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    displayRequestDuration: true
+    showExtensions: true
+    showCommonExtensions: true
+    disable-swagger-default-url: false
+  packages-to-scan: com.autoinsurance
+  paths-to-match: /api/**
+  show-actuator: true
+    
+# Auto Insurance Specific Configuration
+insurance:
+  quote:
+    max-age-vehicle: 20
+    min-age-driver: 18
+    max-age-driver: 85
+    base-premium: 500.00
+    
+  policy:
+    min-coverage: 25000
+    max-coverage: 1000000
+    grace-period-days: 30
+    
+  claims:
+    max-claim-amount: 500000
+    processing-sla-hours: 72
+    
+  performance:
+    quote-generation-timeout-ms: 2000
+    policy-retrieval-timeout-ms: 500
+    claim-submission-timeout-ms: 1000
+    payment-processing-timeout-ms: 3000

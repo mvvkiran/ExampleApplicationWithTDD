@@ -1,0 +1,3 @@
+com/autoinsurance/config/TestSecurityConfig.class
+com/autoinsurance/quote/controller/QuoteControllerTest.class
+com/autoinsurance/quote/service/QuoteServiceTest.class
