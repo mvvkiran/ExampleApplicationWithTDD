@@ -63,11 +63,11 @@ public class Quote {
     // Constructors
 <span class="fc" id="L64">    public Quote() {}</span>
     
-    public Quote(String id, BigDecimal premium, BigDecimal monthlyPremium, BigDecimal coverageAmount,
+<span class="fc" id="L66">    public Quote(String id, BigDecimal premium, BigDecimal monthlyPremium, BigDecimal coverageAmount,</span>
                 BigDecimal deductible, LocalDate validUntil, LocalDateTime createdAt,
                 String vehicleMake, String vehicleModel, Integer vehicleYear, String vehicleVin,
                 BigDecimal vehicleCurrentValue, String primaryDriverName, String primaryDriverLicense,
-<span class="fc" id="L70">                List&lt;String&gt; discountsApplied) {</span>
+                List&lt;String&gt; discountsApplied) {
 <span class="fc" id="L71">        this.id = id;</span>
 <span class="fc" id="L72">        this.premium = premium;</span>
 <span class="fc" id="L73">        this.monthlyPremium = monthlyPremium;</span>
@@ -180,8 +180,8 @@ public class Quote {
         
         public Quote build() {
 <span class="fc" id="L182">            return new Quote(id, premium, monthlyPremium, coverageAmount, deductible, validUntil, </span>
-                           createdAt, vehicleMake, vehicleModel, vehicleYear, vehicleVin, 
-                           vehicleCurrentValue, primaryDriverName, primaryDriverLicense, discountsApplied);
+<span class="fc" id="L183">                           createdAt, vehicleMake, vehicleModel, vehicleYear, vehicleVin, </span>
+<span class="fc" id="L184">                           vehicleCurrentValue, primaryDriverName, primaryDriverLicense, discountsApplied);</span>
         }
     }
 }

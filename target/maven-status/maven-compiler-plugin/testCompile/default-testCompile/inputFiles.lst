@@ -1,11 +1,15 @@
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/contract/provider/QuoteApiProviderTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/exception/QuoteExceptionTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/contract/consumer/CreditCheckServiceConsumerTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteEntityBuilderTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/AutoInsuranceApiApplicationTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/OpenApiConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteServiceTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/contract/consumer/RiskAssessmentServiceConsumerTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/controller/QuoteControllerTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/DiscountServiceImplTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/PremiumCalculationTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/contract/provider/PactProviderTestConfiguration.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/RiskCalculationServiceImplTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/CacheConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/config/QuoteValidationConfigTest.java

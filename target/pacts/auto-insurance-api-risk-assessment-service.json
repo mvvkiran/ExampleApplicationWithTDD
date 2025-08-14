@@ -1,0 +1,158 @@
+{
+  "consumer": {
+    "name": "auto-insurance-api"
+  },
+  "interactions": [
+    {
+      "description": "a request for risk assessment of a young driver",
+      "key": "5c1915be",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "driverAge": 22,
+            "vehicleAge": 5,
+            "vehicleValue": 25000.00,
+            "yearsOfExperience": 3
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/risk-assessment"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "baseMultiplier": 1.8,
+            "riskCategory": "HIGH",
+            "riskFactors": [
+              "Young driver",
+              "Limited experience"
+            ],
+            "riskScore": 7.5
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "a request for risk assessment of an experienced driver",
+      "key": "9ec62a56",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "driverAge": 35,
+            "vehicleAge": 3,
+            "vehicleValue": 40000.00,
+            "yearsOfExperience": 15
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/risk-assessment"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "baseMultiplier": 0.9,
+            "riskCategory": "LOW",
+            "riskFactors": [
+              "Experienced driver",
+              "New vehicle"
+            ],
+            "riskScore": 3.2
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "a request with invalid driver age",
+      "key": "8e550610",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "driverAge": 16,
+            "vehicleAge": 10,
+            "vehicleValue": 15000.00,
+            "yearsOfExperience": 0
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/risk-assessment"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "error": "VALIDATION_ERROR",
+            "message": "Driver must be at least 18 years old",
+            "timestamp": "2024-08-14T10:30:00Z"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 400
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.6.3"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    },
+    "plugins": [
+
+    ]
+  },
+  "provider": {
+    "name": "risk-assessment-service"
+  }
+}

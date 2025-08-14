@@ -15,11 +15,11 @@ public class PremiumCalculation {
     private final BigDecimal monthlyPremium;
     private final List&lt;String&gt; appliedDiscounts;
     
-    public PremiumCalculation(BigDecimal basePremium, 
+<span class="fc" id="L18">    public PremiumCalculation(BigDecimal basePremium, </span>
                             BigDecimal totalDiscount, 
                             BigDecimal finalPremium, 
                             BigDecimal monthlyPremium, 
-<span class="fc" id="L22">                            List&lt;String&gt; appliedDiscounts) {</span>
+                            List&lt;String&gt; appliedDiscounts) {
 <span class="fc" id="L23">        this.basePremium = basePremium;</span>
 <span class="fc" id="L24">        this.totalDiscount = totalDiscount;</span>
 <span class="fc" id="L25">        this.finalPremium = finalPremium;</span>
@@ -50,11 +50,11 @@ public class PremiumCalculation {
     @Override
     public String toString() {
 <span class="fc" id="L52">        return &quot;PremiumCalculation{&quot; +</span>
-                &quot;basePremium=&quot; + basePremium +
-                &quot;, totalDiscount=&quot; + totalDiscount +
-                &quot;, finalPremium=&quot; + finalPremium +
-                &quot;, monthlyPremium=&quot; + monthlyPremium +
-                &quot;, appliedDiscounts=&quot; + appliedDiscounts +
+<span class="fc" id="L53">                &quot;basePremium=&quot; + basePremium +</span>
+<span class="fc" id="L54">                &quot;, totalDiscount=&quot; + totalDiscount +</span>
+<span class="fc" id="L55">                &quot;, finalPremium=&quot; + finalPremium +</span>
+<span class="fc" id="L56">                &quot;, monthlyPremium=&quot; + monthlyPremium +</span>
+<span class="fc" id="L57">                &quot;, appliedDiscounts=&quot; + appliedDiscounts +</span>
                 '}';
     }
 }

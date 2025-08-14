@@ -1,0 +1,75 @@
+# Pact Contract Testing Configuration
+# This configuration is used during contract testing to provide
+# proper setup for both consumer and provider tests
+
+spring:
+  profiles:
+    active: pact
+  
+  # Database configuration for contract testing
+  datasource:
+    url: jdbc:h2:mem:pactdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        
+  # Disable security for contract testing
+  security:
+    enabled: false
+
+# Pact Broker Configuration
+pact:
+  broker:
+    # URL for Pact Broker (use local or hosted)
+    url: ${PACT_BROKER_URL:http://localhost:9292}
+    # Authentication for Pact Broker
+    username: ${PACT_BROKER_USERNAME:}
+    password: ${PACT_BROKER_PASSWORD:}
+  
+  provider:
+    # Provider name must match what consumers expect
+    name: auto-insurance-api
+    # Version of the provider
+    version: ${GIT_COMMIT:1.0.0-SNAPSHOT}
+    # Tags for provider versions
+    tags:
+      - main
+      - ${GIT_BRANCH:feature}
+  
+  consumer:
+    # Consumer name for consumer-driven contracts
+    name: auto-insurance-client
+    # Version of the consumer
+    version: ${GIT_COMMIT:1.0.0-SNAPSHOT}
+
+# Logging configuration for contract testing
+logging:
+  level:
+    au.com.dius.pact: INFO
+    com.autoinsurance: DEBUG
+    org.springframework.security: WARN
+    org.springframework.web: DEBUG
+  pattern:
+    console: '%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n'
+
+# Server configuration for provider tests
+server:
+  port: 0  # Random port for testing
+
+# Management endpoints for health checks during contract testing
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

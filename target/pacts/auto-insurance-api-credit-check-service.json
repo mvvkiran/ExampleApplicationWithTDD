@@ -1,0 +1,181 @@
+{
+  "consumer": {
+    "name": "auto-insurance-api"
+  },
+  "interactions": [
+    {
+      "description": "a request for credit check with excellent credit",
+      "key": "b92e8da9",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "address": {
+              "city": "New York",
+              "state": "NY",
+              "street": "123 Main St",
+              "zipCode": "10001"
+            },
+            "dateOfBirth": "1985-06-15",
+            "firstName": "John",
+            "lastName": "Smith",
+            "ssn": "123-45-6789"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Authorization": [
+            "Bearer test-token"
+          ],
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/credit-check"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "creditScore": 785,
+            "creditTier": "EXCELLENT",
+            "discountEligible": true,
+            "discountPercentage": 15,
+            "reportDate": "2024-08-14"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "a request for credit check with fair credit",
+      "key": "77d30c03",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "address": {
+              "city": "Los Angeles",
+              "state": "CA",
+              "street": "456 Oak Ave",
+              "zipCode": "90210"
+            },
+            "dateOfBirth": "1990-03-20",
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "ssn": "987-65-4321"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Authorization": [
+            "Bearer test-token"
+          ],
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/credit-check"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "creditScore": 620,
+            "creditTier": "FAIR",
+            "discountEligible": false,
+            "discountPercentage": 0,
+            "reportDate": "2024-08-14"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "a request with invalid SSN format",
+      "key": "b113b946",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "address": {
+              "city": "New York",
+              "state": "NY",
+              "street": "123 Main St",
+              "zipCode": "10001"
+            },
+            "dateOfBirth": "1985-06-15",
+            "firstName": "Invalid",
+            "lastName": "SSN",
+            "ssn": "invalid-ssn"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Authorization": [
+            "Bearer test-token"
+          ],
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/v1/credit-check"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "error": "VALIDATION_ERROR",
+            "message": "Invalid SSN format. Expected format: XXX-XX-XXXX",
+            "timestamp": "2024-08-14T10:30:00Z"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 400
+      },
+      "transport": "https",
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.6.3"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    },
+    "plugins": [
+
+    ]
+  },
+  "provider": {
+    "name": "credit-check-service"
+  }
+}

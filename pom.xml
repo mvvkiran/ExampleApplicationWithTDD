@@ -301,6 +301,81 @@
                     <simulationClass>com.autoinsurance.performance.LoadSimulation</simulationClass>
                 </configuration>
             </plugin>
+            
+            <!-- Pact Maven Plugin for Contract Testing -->
+            <plugin>
+                <groupId>au.com.dius.pact.provider</groupId>
+                <artifactId>maven</artifactId>
+                <version>${pact.version}</version>
+                <configuration>
+                    <serviceProviders>
+                        <serviceProvider>
+                            <name>auto-insurance-api</name>
+                            <protocol>http</protocol>
+                            <host>localhost</host>
+                            <port>8080</port>
+                            <path>/</path>
+                        </serviceProvider>
+                    </serviceProviders>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <!-- Maven Profiles -->
+    <profiles>
+        <!-- Contract Testing Profile -->
+        <profile>
+            <id>contract-tests</id>
+            <properties>
+                <skipTests>false</skipTests>
+                <spring.profiles.active>pact</spring.profiles.active>
+                <pact.verifier.publishResults>false</pact.verifier.publishResults>
+            </properties>
+            <build>
+                <plugins>
+                    <!-- Run Consumer Contract Tests -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <includes>
+                                <include>**/*ConsumerTest.java</include>
+                            </includes>
+                            <systemPropertyVariables>
+                                <pact.rootDir>target/pacts</pact.rootDir>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+                    
+                    <!-- Run Provider Contract Tests -->
+                    <plugin>
+                        <groupId>au.com.dius.pact.provider</groupId>
+                        <artifactId>maven</artifactId>
+                        <version>${pact.version}</version>
+                        <configuration>
+                            <serviceProviders>
+                                <serviceProvider>
+                                    <name>auto-insurance-api</name>
+                                    <protocol>http</protocol>
+                                    <host>localhost</host>
+                                    <port>8080</port>
+                                    <path>/</path>
+                                    <pactFileDirectory>target/pacts</pactFileDirectory>
+                                </serviceProvider>
+                            </serviceProviders>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>verify-contracts</id>
+                                <goals>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

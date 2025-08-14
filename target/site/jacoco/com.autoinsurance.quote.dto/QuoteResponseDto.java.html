@@ -70,7 +70,7 @@ public class QuoteResponseDto {
     )
     private LocalDate validUntil;
     
-<span class="pc" id="L73">    @Schema(</span>
+    @Schema(
         description = &quot;List of discounts applied to the base premium&quot;,
         example = &quot;&quot;&quot;
             [
@@ -80,14 +80,14 @@ public class QuoteResponseDto {
             ]
             &quot;&quot;&quot;
     )
-    private List&lt;String&gt; discountsApplied = new ArrayList&lt;&gt;();
+<span class="pc" id="L83">    private List&lt;String&gt; discountsApplied = new ArrayList&lt;&gt;();</span>
     
     // Constructors
 <span class="nc" id="L86">    public QuoteResponseDto() {}</span>
     
-    public QuoteResponseDto(String quoteId, BigDecimal premium, BigDecimal monthlyPremium, 
+<span class="fc" id="L88">    public QuoteResponseDto(String quoteId, BigDecimal premium, BigDecimal monthlyPremium, </span>
                            BigDecimal coverageAmount, BigDecimal deductible, LocalDate validUntil, 
-<span class="fc" id="L90">                           List&lt;String&gt; discountsApplied) {</span>
+                           List&lt;String&gt; discountsApplied) {
 <span class="fc" id="L91">        this.quoteId = quoteId;</span>
 <span class="fc" id="L92">        this.premium = premium;</span>
 <span class="fc" id="L93">        this.monthlyPremium = monthlyPremium;</span>
@@ -145,7 +145,7 @@ public class QuoteResponseDto {
         
         public QuoteResponseDto build() {
 <span class="fc" id="L147">            return new QuoteResponseDto(quoteId, premium, monthlyPremium, coverageAmount, </span>
-                                      deductible, validUntil, discountsApplied);
+<span class="fc" id="L148">                                      deductible, validUntil, discountsApplied);</span>
         }
     }
 }
