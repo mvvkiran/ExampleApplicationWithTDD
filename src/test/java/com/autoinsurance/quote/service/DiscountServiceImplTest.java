@@ -324,6 +324,47 @@ class DiscountServiceImplTest {
             assertThat(discount.scale()).isEqualTo(2);
             assertThat(discount).isEqualTo(new BigDecimal("150.00")); // 15% of 999.99 rounded
         }
+
+        @Test
+        @DisplayName("Should test discount cap boundary condition - line 44 mutation")
+        void should_TestDiscountCapBoundaryCondition() {
+            // Given - Test exactly at the 25% boundary (line 44 ConditionalsBoundaryMutator)
+            VehicleDto vehicle = VehicleDto.builder()
+                    .make("Boundary")
+                    .model("Test")
+                    .year(2023)
+                    .vin("1BOUNDARY25PERC")
+                    .currentValue(new BigDecimal("30000"))
+                    .build();
+
+            // Create drivers that result in exactly 25% discount
+            DriverDto driver1 = DriverDto.builder()
+                    .firstName("Exactly")
+                    .lastName("TwentyFive")
+                    .dateOfBirth(LocalDate.of(1990, 1, 1))
+                    .licenseNumber("EXACT25")
+                    .licenseState("CA")
+                    .safeDriverDiscount(true)   // 15%
+                    .multiPolicyDiscount(true)  // 10%
+                    .build();
+            // Total: 25% exactly - should not be capped
+
+            QuoteRequestDto requestExact25 = QuoteRequestDto.builder()
+                    .vehicle(vehicle)
+                    .drivers(List.of(driver1))
+                    .coverageAmount(new BigDecimal("100000"))
+                    .deductible(new BigDecimal("1000"))
+                    .build();
+
+            when(riskCalculationService.calculateBasePremium(any(QuoteRequestDto.class)))
+                    .thenReturn(new BigDecimal("1000.00"));
+
+            // When
+            BigDecimal discountExact25 = discountService.calculateTotalDiscount(requestExact25);
+
+            // Then - Should be exactly 25% (250.00), not capped since it equals the limit
+            assertThat(discountExact25).isEqualTo(new BigDecimal("250.00")); // 25% of 1000
+        }
     }
 
     @Nested

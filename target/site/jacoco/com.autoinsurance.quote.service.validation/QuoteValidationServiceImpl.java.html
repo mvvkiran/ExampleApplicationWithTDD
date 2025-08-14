@@ -45,7 +45,7 @@ public class QuoteValidationServiceImpl implements QuoteValidationService {
         
 <span class="fc bfc" id="L46" title="All 2 branches covered.">        for (DriverDto driver : request.getDrivers()) {</span>
 <span class="fc" id="L47">            validateDriver(driver);</span>
-<span class="fc" id="L48">        }</span>
+        }
         
 <span class="fc" id="L50">        log.debug(&quot;Quote request validation completed successfully&quot;);</span>
 <span class="fc" id="L51">    }</span>
@@ -133,11 +133,11 @@ public class QuoteValidationServiceImpl implements QuoteValidationService {
 <span class="fc" id="L133">    }</span>
     
     private void validateVehicleBasicInfo(VehicleDto vehicle) {
-<span class="pc bpc" id="L136" title="1 of 4 branches missed.">        if (vehicle.getMake() == null || vehicle.getMake().trim().isEmpty()) {</span>
+<span class="fc bfc" id="L136" title="All 4 branches covered.">        if (vehicle.getMake() == null || vehicle.getMake().trim().isEmpty()) {</span>
 <span class="fc" id="L137">            throw new InvalidQuoteRequestException(&quot;Vehicle make is required&quot;);</span>
         }
         
-<span class="pc bpc" id="L140" title="1 of 4 branches missed.">        if (vehicle.getModel() == null || vehicle.getModel().trim().isEmpty()) {</span>
+<span class="fc bfc" id="L140" title="All 4 branches covered.">        if (vehicle.getModel() == null || vehicle.getModel().trim().isEmpty()) {</span>
 <span class="fc" id="L141">            throw new InvalidQuoteRequestException(&quot;Vehicle model is required&quot;);</span>
         }
         
@@ -147,11 +147,11 @@ public class QuoteValidationServiceImpl implements QuoteValidationService {
 <span class="fc" id="L147">    }</span>
     
     private void validateDriverBasicInfo(DriverDto driver) {
-<span class="pc bpc" id="L150" title="1 of 4 branches missed.">        if (driver.getFirstName() == null || driver.getFirstName().trim().isEmpty()) {</span>
+<span class="fc bfc" id="L150" title="All 4 branches covered.">        if (driver.getFirstName() == null || driver.getFirstName().trim().isEmpty()) {</span>
 <span class="fc" id="L151">            throw new InvalidQuoteRequestException(&quot;Driver first name is required&quot;);</span>
         }
         
-<span class="pc bpc" id="L154" title="1 of 4 branches missed.">        if (driver.getLastName() == null || driver.getLastName().trim().isEmpty()) {</span>
+<span class="fc bfc" id="L154" title="All 4 branches covered.">        if (driver.getLastName() == null || driver.getLastName().trim().isEmpty()) {</span>
 <span class="fc" id="L155">            throw new InvalidQuoteRequestException(&quot;Driver last name is required&quot;);</span>
         }
         

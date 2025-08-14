@@ -470,5 +470,67 @@ class QuoteEntityBuilderTest {
             assertThat(quote.getDeductible()).isEqualTo(new BigDecimal("10000"));
             assertThat(quote.getVehicleCurrentValue()).isEqualTo(new BigDecimal("500000"));
         }
+
+        @Test
+        @DisplayName("Should handle null discounts list boundary condition - line 58 mutation")
+        void should_HandleNullDiscountsListBoundary() {
+            // Given - Test the exact boundary condition for null list (line 58 RemoveConditionalMutator_EQUAL_ELSE)
+            VehicleDto vehicle = VehicleDto.builder()
+                    .make("Boundary")
+                    .model("Test")
+                    .year(2023)
+                    .vin("1NULLDISCOUNTS")
+                    .currentValue(new BigDecimal("30000"))
+                    .build();
+
+            DriverDto driver = DriverDto.builder()
+                    .firstName("Null")
+                    .lastName("Discounts")
+                    .dateOfBirth(LocalDate.of(1990, 1, 1))
+                    .licenseNumber("NULL123")
+                    .licenseState("CA")
+                    .build();
+
+            QuoteRequestDto request = QuoteRequestDto.builder()
+                    .vehicle(vehicle)
+                    .drivers(List.of(driver))
+                    .coverageAmount(new BigDecimal("100000"))
+                    .deductible(new BigDecimal("1000"))
+                    .build();
+
+            // Test with null discounts list
+            PremiumCalculation premiumCalcWithNull = new PremiumCalculation(
+                    new BigDecimal("1000.00"),
+                    BigDecimal.ZERO,
+                    new BigDecimal("1000.00"),
+                    new BigDecimal("83.33"),
+                    null // This tests the null condition
+            );
+
+            // Test with empty discounts list
+            PremiumCalculation premiumCalcWithEmpty = new PremiumCalculation(
+                    new BigDecimal("1000.00"),
+                    BigDecimal.ZERO,
+                    new BigDecimal("1000.00"),
+                    new BigDecimal("83.33"),
+                    Collections.emptyList() // This tests the empty condition
+            );
+
+            // When
+            Quote quoteWithNull = quoteEntityBuilder.buildQuoteEntity(request, premiumCalcWithNull);
+            Quote quoteWithEmpty = quoteEntityBuilder.buildQuoteEntity(request, premiumCalcWithEmpty);
+
+            // Then - Both should result in empty immutable lists
+            assertThat(quoteWithNull.getDiscountsApplied()).isNotNull();
+            assertThat(quoteWithNull.getDiscountsApplied()).isEmpty();
+            assertThat(quoteWithEmpty.getDiscountsApplied()).isNotNull();
+            assertThat(quoteWithEmpty.getDiscountsApplied()).isEmpty();
+            
+            // Both should be immutable
+            assertThatThrownBy(() -> quoteWithNull.getDiscountsApplied().add("test"))
+                    .isInstanceOf(UnsupportedOperationException.class);
+            assertThatThrownBy(() -> quoteWithEmpty.getDiscountsApplied().add("test"))
+                    .isInstanceOf(UnsupportedOperationException.class);
+        }
     }
 }

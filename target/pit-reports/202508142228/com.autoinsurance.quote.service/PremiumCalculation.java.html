@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>PremiumCalculation.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.autoinsurance.quote.service;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Value object representing the results of premium calculation.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Encapsulates all premium-related calculations in a immutable structure.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class PremiumCalculation {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BigDecimal basePremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BigDecimal totalDiscount;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BigDecimal finalPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final BigDecimal monthlyPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;String&#62; appliedDiscounts;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public PremiumCalculation(BigDecimal basePremium, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            BigDecimal totalDiscount, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            BigDecimal finalPremium, </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                            BigDecimal monthlyPremium, </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                            List&#60;String&#62; appliedDiscounts) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.basePremium = basePremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.totalDiscount = totalDiscount;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.finalPremium = finalPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.monthlyPremium = monthlyPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_27'>1</a>
+<span>
+1. &#60;init&#62; : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.appliedDiscounts = appliedDiscounts != null ? List.copyOf(appliedDiscounts) : List.of();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getBasePremium() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return basePremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getTotalDiscount() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return totalDiscount;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getFinalPremium() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return finalPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getMonthlyPremium() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return monthlyPremium;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;String&#62; getAppliedDiscounts() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return appliedDiscounts;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String toString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        return &#34;PremiumCalculation{&#34; +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;basePremium=&#34; + basePremium +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;, totalDiscount=&#34; + totalDiscount +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;, finalPremium=&#34; + finalPremium +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;, monthlyPremium=&#34; + monthlyPremium +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#34;, appliedDiscounts=&#34; + appliedDiscounts +</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                &#39;}&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4e756867_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4e756867_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4e756867_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ImmutabilityTests]/[method:should_MaintainImmutability_When_ExternalModificationAttempted()]</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_HandleEmptyDiscounts_When_DiscountsListIsEmpty()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ToStringMethodTests]/[method:should_HandleEmptyDiscountsInToString_When_DiscountsAreEmpty()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_HandleNullDiscounts_When_DiscountsListIsNull()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ImmutabilityTests]/[method:should_MaintainImmutability_When_ExternalModificationAttempted()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_CreateImmutableCopy_When_MutableListProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ToStringMethodTests]/[method:should_HandleMultipleDiscountsInToString_When_MultipleDiscountsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_HandleNegativeValues_When_NegativeAmountsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ToStringMethodTests]/[method:should_HandleNullDiscountsInToString_When_DiscountsAreNull()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_HandleZeroValues_When_ZeroAmountsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ToStringMethodTests]/[method:should_ReturnStringRepresentation_When_ToStringCalled()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ImmutabilityTests]/[method:should_PreserveBigDecimalImmutability_When_ValuesAreAccessed()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_CreatePremiumCalculation_When_AllFieldsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ImmutabilityTests]/[method:should_PreventModification_When_ReturnedListIsAccessed()] (0 ms)</li><li>com.autoinsurance.quote.service.PremiumCalculationTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.PremiumCalculationTest]/[nested-class:ConstructorAndGettersTests]/[method:should_HandleLargeValues_When_LargeAmountsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_HandleNullDiscounts_When_DiscountsAreNull()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_HandleSpecialCharacters_When_DriverNameHasSpecialChars()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_SetValidUntilDate_When_BuildingQuote()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_HandleEmptyDiscounts_When_NoDiscountsApplied()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_UseFirstDriver_When_MultipleDriversProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_CreateImmutableCopy_When_DiscountsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_HandleNullDiscountsListBoundary()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_HandleLargeValues_When_LargeCoverageAndPremium()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_GenerateUniqueId_When_BuildingMultipleQuotes()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest]/[method:should_PropagateException_When_EntityBuilderFails()] (1 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest]/[method:should_PropagateException_When_RepositoryFails()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteEntityBuilderTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteEntityBuilderTest]/[nested-class:BuildQuoteEntityTests]/[method:should_BuildQuoteEntity_When_AllFieldsProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceTest]/[method:should_CalculateMonthlyPremium_When_AnnualPremiumProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceTest]/[method:should_ApplyMultipleDiscounts_When_EligibleConditionsMet()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest]/[method:should_GenerateQuote_When_SingleDriverProvided()] (0 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceTest]/[method:should_GenerateQuote_When_ValidRequestProvided()] (1 ms)</li><li>com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest.[engine:junit-jupiter]/[class:com.autoinsurance.quote.service.QuoteServiceImplAdditionalTest]/[method:should_GenerateQuote_When_MultipleDriversWithDifferentProfiles()] (0 ms)</li><li>com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest.[engine:junit-jupiter]/[class:com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest]/[method:should_HandleMultipleDriversEdgeCases()] (2 ms)</li><li>com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest.[engine:junit-jupiter]/[class:com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest]/[method:should_HandleConcurrentErrorScenarios()] (5 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_HandleBusinessRuleForMultiPolicyDiscounts()] (7 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_HandleMultiDriverScenariosWithPrimaryDriverLogic()] (7 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_HandleSeniorDriverScenariosAppropriately()] (9 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_CalculatePremiumsBasedOnStateSpecificFactors()] (11 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_CalculateHigherPremiumsForYoungDriversWithLuxuryVehicles()] (11 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_ApplySafeDriverDiscountCorrectly()] (12 ms)</li><li>com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest.[engine:junit-jupiter]/[class:com.autoinsurance.errorhandling.ErrorHandlingAndEdgeCaseTest]/[method:should_HandleNonexistentQuoteRetrieval()] (15 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_EnforceCoverageLimitsAndDeductibleBusinessRules()] (70 ms)</li><li>com.autoinsurance.business.BusinessDomainSpecificTest.[engine:junit-jupiter]/[class:com.autoinsurance.business.BusinessDomainSpecificTest]/[method:should_CalculateMonthlyPremiumsCorrectlyFromAnnualPremiums()] (376 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>

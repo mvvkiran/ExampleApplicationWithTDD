@@ -32,13 +32,13 @@ import java.util.Map;
 
     @ExceptionHandler(QuoteNotFoundException.class)
     public ResponseEntity&lt;Map&lt;String, Object&gt;&gt; handleQuoteNotFound(QuoteNotFoundException ex) {
-<span class="nc" id="L35">        log.warn(&quot;Quote not found: {}&quot;, ex.getMessage());</span>
+<span class="fc" id="L35">        log.warn(&quot;Quote not found: {}&quot;, ex.getMessage());</span>
         
-<span class="nc" id="L37">        return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
-<span class="nc" id="L38">                .body(Map.of(</span>
-<span class="nc" id="L39">                        &quot;message&quot;, ex.getMessage(),</span>
+<span class="fc" id="L37">        return ResponseEntity.status(HttpStatus.NOT_FOUND)</span>
+<span class="fc" id="L38">                .body(Map.of(</span>
+<span class="fc" id="L39">                        &quot;message&quot;, ex.getMessage(),</span>
                         &quot;errorCode&quot;, &quot;QUOTE_NOT_FOUND&quot;,
-<span class="nc" id="L41">                        &quot;timestamp&quot;, Instant.now().toEpochMilli()</span>
+<span class="fc" id="L41">                        &quot;timestamp&quot;, Instant.now().toEpochMilli()</span>
                 ));
     }
 

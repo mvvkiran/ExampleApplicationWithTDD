@@ -25,6 +25,7 @@ public class DriverDto {
     
     @NotBlank(message = "License state is required")
     @Size(min = 2, max = 2, message = "License state must be 2 characters")
+    @Pattern(regexp = "^[A-Z]{2}$", message = "License state must be a valid 2-letter state code")
     private String licenseState;
     
     @Min(value = 0, message = "Years of experience cannot be negative")

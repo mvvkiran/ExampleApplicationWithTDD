@@ -39,12 +39,12 @@ public class VehicleDto {
         description = "Manufacturing year of the vehicle",
         example = "2021",
         minimum = "1900",
-        maximum = "2024",
+        maximum = "2025",
         required = true
     )
     @NotNull(message = "Vehicle year is required")
     @Min(value = 1900, message = "Invalid vehicle year")
-    @Max(value = 2024, message = "Invalid vehicle year")
+    @Max(value = 2025, message = "Invalid vehicle year")
     private Integer year;
     
     @Schema(
@@ -65,6 +65,7 @@ public class VehicleDto {
     )
     @NotNull(message = "Vehicle current value is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "Vehicle value must be positive")
+    @DecimalMax(value = "1000000.00", message = "Vehicle value cannot exceed $1,000,000")
     private BigDecimal currentValue;
 
     // Constructors

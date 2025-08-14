@@ -155,6 +155,59 @@ class QuoteValidationServiceImplTest {
                 .isInstanceOf(InvalidQuoteRequestException.class)
                 .hasMessage("Valid deductible amount is required");
         }
+
+        @Test
+        @DisplayName("Should accept zero deductible - boundary condition test")
+        void should_AcceptZeroDeductible() {
+            // Given - Testing boundary condition for deductible >= 0 (line 97 mutation)
+            QuoteRequestDto request = createValidQuoteRequest();
+            request.setDeductible(BigDecimal.ZERO);
+            
+            // When & Then - This should not throw exception since deductible >= 0 is valid
+            assertDoesNotThrow(() -> validationService.validateQuoteRequest(request));
+        }
+        
+        @Test
+        @DisplayName("Should test vehicle presence validation method calls")
+        void should_TestVehiclePresenceValidation() {
+            // Given - Test for VoidMethodCallMutator on line 39
+            QuoteRequestDto requestWithoutVehicle = new QuoteRequestDto();
+            requestWithoutVehicle.setVehicle(null);
+            requestWithoutVehicle.setDrivers(List.of(createValidDriver()));
+            requestWithoutVehicle.setCoverageAmount(new BigDecimal("100000"));
+            requestWithoutVehicle.setDeductible(new BigDecimal("1000"));
+            
+            // When & Then
+            assertThatThrownBy(() -> validationService.validateQuoteRequest(requestWithoutVehicle))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Vehicle information is required");
+        }
+        
+        @Test
+        @DisplayName("Should test driver list iteration validation")
+        void should_TestDriverListIterationValidation() {
+            // Given - Test for VoidMethodCallMutator on lines 44 and 47
+            DriverDto validDriver = createValidDriver();
+            DriverDto invalidDriver = createValidDriver();
+            invalidDriver.setFirstName(null); // This should trigger validation
+            
+            // Create a mutable list of drivers
+            List<DriverDto> driverList = new ArrayList<>();
+            driverList.add(validDriver);
+            driverList.add(invalidDriver);
+            
+            QuoteRequestDto request = QuoteRequestDto.builder()
+                .vehicle(createValidVehicle())
+                .drivers(driverList)
+                .coverageAmount(new BigDecimal("100000"))
+                .deductible(new BigDecimal("1000"))
+                .build();
+            
+            // When & Then
+            assertThatThrownBy(() -> validationService.validateQuoteRequest(request))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Driver first name is required");
+        }
     }
 
     @Nested
@@ -310,6 +363,49 @@ class QuoteValidationServiceImplTest {
                 .isInstanceOf(InvalidQuoteRequestException.class)
                 .hasMessage("Valid vehicle current value is required");
         }
+
+        @Test
+        @DisplayName("Should accept vehicle at maximum age boundary - boundary condition test")
+        void should_AcceptVehicleAtMaximumAgeBoundary() {
+            // Given - Testing boundary condition for vehicle age (lines 123, 127 mutations)
+            VehicleDto vehicle = createValidVehicle();
+            int maxAgeYear = LocalDate.now().getYear() - MAX_VEHICLE_AGE;
+            vehicle.setYear(maxAgeYear);
+            
+            // When & Then - This should not throw exception as it's exactly at the boundary
+            assertDoesNotThrow(() -> validationService.validateVehicle(vehicle));
+        }
+
+        @Test
+        @DisplayName("Should accept current year vehicle - boundary condition test")
+        void should_AcceptCurrentYearVehicle() {
+            // Given - Testing boundary condition for vehicle age >= 0 (lines 123 mutation)
+            VehicleDto vehicle = createValidVehicle();
+            vehicle.setYear(LocalDate.now().getYear()); // Current year vehicle
+            
+            // When & Then - This should not throw exception as age = 0
+            assertDoesNotThrow(() -> validationService.validateVehicle(vehicle));
+        }
+
+        @Test
+        @DisplayName("Should test empty string validation for make and model")
+        void should_TestEmptyStringValidationForMakeAndModel() {
+            // Given - Testing boundary conditions for empty strings (lines 136, 140 mutations)
+            VehicleDto vehicleWithEmptyMake = createValidVehicle();
+            vehicleWithEmptyMake.setMake("   "); // Empty after trim
+            
+            VehicleDto vehicleWithEmptyModel = createValidVehicle();
+            vehicleWithEmptyModel.setModel(""); // Empty string
+            
+            // When & Then
+            assertThatThrownBy(() -> validationService.validateVehicle(vehicleWithEmptyMake))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Vehicle make is required");
+                
+            assertThatThrownBy(() -> validationService.validateVehicle(vehicleWithEmptyModel))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Vehicle model is required");
+        }
     }
 
     @Nested
@@ -435,6 +531,26 @@ class QuoteValidationServiceImplTest {
             
             // When & Then
             assertDoesNotThrow(() -> validationService.validateDriver(driver));
+        }
+
+        @Test
+        @DisplayName("Should test empty string validation for driver names")
+        void should_TestEmptyStringValidationForDriverNames() {
+            // Given - Testing boundary conditions for empty strings (lines 150, 154 mutations)
+            DriverDto driverWithEmptyFirstName = createValidDriver();
+            driverWithEmptyFirstName.setFirstName("   "); // Empty after trim
+            
+            DriverDto driverWithEmptyLastName = createValidDriver();
+            driverWithEmptyLastName.setLastName(""); // Empty string
+            
+            // When & Then
+            assertThatThrownBy(() -> validationService.validateDriver(driverWithEmptyFirstName))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Driver first name is required");
+                
+            assertThatThrownBy(() -> validationService.validateDriver(driverWithEmptyLastName))
+                .isInstanceOf(InvalidQuoteRequestException.class)
+                .hasMessage("Driver last name is required");
         }
         
         @Test

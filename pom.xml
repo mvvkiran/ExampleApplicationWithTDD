@@ -35,6 +35,11 @@
         <!-- Coverage Requirements -->
         <jacoco.version>0.8.11</jacoco.version>
         <coverage.minimum>0.80</coverage.minimum>
+        
+        <!-- Mutation Testing -->
+        <pitest.version>1.15.0</pitest.version>
+        <pitest.junit5.version>1.2.1</pitest.junit5.version>
+        <mutation.threshold>75</mutation.threshold>
     </properties>
 
     <dependencies>
@@ -320,6 +325,90 @@
                     </serviceProviders>
                 </configuration>
             </plugin>
+            
+            <!-- PIT Mutation Testing Plugin -->
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>${pitest.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>${pitest.junit5.version}</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <!-- Target Classes for Mutation Testing -->
+                    <targetClasses>
+                        <param>com.autoinsurance.quote.service.*</param>
+                        <param>com.autoinsurance.quote.controller.*</param>
+                        <param>com.autoinsurance.quote.model.*</param>
+                        <param>com.autoinsurance.config.*</param>
+                    </targetClasses>
+                    
+                    <!-- Target Tests -->
+                    <targetTests>
+                        <param>com.autoinsurance.quote.*Test</param>
+                        <param>com.autoinsurance.business.*Test</param>
+                        <param>com.autoinsurance.integration.*Test</param>
+                        <param>com.autoinsurance.security.*Test</param>
+                        <param>com.autoinsurance.errorhandling.*Test</param>
+                    </targetTests>
+                    
+                    <!-- Mutation Testing Configuration -->
+                    <mutationThreshold>${mutation.threshold}</mutationThreshold>
+                    <outputFormats>
+                        <outputFormat>HTML</outputFormat>
+                        <outputFormat>XML</outputFormat>
+                        <outputFormat>CSV</outputFormat>
+                    </outputFormats>
+                    
+                    <!-- Excluded Classes -->
+                    <excludedClasses>
+                        <param>com.autoinsurance.AutoInsuranceApiApplication</param>
+                        <param>com.autoinsurance.quote.dto.*</param>
+                        <param>com.autoinsurance.quote.mapper.*</param>
+                        <param>com.autoinsurance.config.SwaggerConfig</param>
+                        <param>com.autoinsurance.config.OpenApiConfig</param>
+                    </excludedClasses>
+                    
+                    <!-- Excluded Methods -->
+                    <excludedMethods>
+                        <param>main</param>
+                        <param>toString</param>
+                        <param>equals</param>
+                        <param>hashCode</param>
+                        <param>get*</param>
+                        <param>set*</param>
+                    </excludedMethods>
+                    
+                    <!-- Advanced Configuration -->
+                    <threads>4</threads>
+                    <timeoutFactor>1.5</timeoutFactor>
+                    <timeoutConstant>4000</timeoutConstant>
+                    
+                    <!-- Features -->
+                    <features>
+                        <feature>+CLASSLIMIT(limit[50])</feature>
+                    </features>
+                    
+                    <!-- Mutation Operators -->
+                    <mutators>
+                        <mutator>DEFAULTS</mutator>
+                    </mutators>
+                    
+                    <!-- Verbose Output -->
+                    <verbose>false</verbose>
+                    <timestampedReports>true</timestampedReports>
+                    
+                    <!-- Skip Slow Tests for Mutation Testing -->
+                    <excludedTestClasses>
+                        <param>com.autoinsurance.stress.*Test</param>
+                        <param>com.autoinsurance.performance.*Test</param>
+                    </excludedTestClasses>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -371,6 +460,50 @@
                                 <id>verify-contracts</id>
                                 <goals>
                                     <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        
+        <!-- Mutation Testing Profile -->
+        <profile>
+            <id>mutation-tests</id>
+            <properties>
+                <skipTests>false</skipTests>
+                <mutation.threshold>75</mutation.threshold>
+            </properties>
+            <build>
+                <plugins>
+                    <!-- Run Unit Tests First -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <includes>
+                                <include>**/*Test.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/*IntegrationTest.java</exclude>
+                                <exclude>**/stress/*Test.java</exclude>
+                                <exclude>**/performance/*Test.java</exclude>
+                                <exclude>**/wiremock/*ClientTest.java</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                    
+                    <!-- Execute Mutation Testing -->
+                    <plugin>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-maven</artifactId>
+                        <executions>
+                            <execution>
+                                <id>pit-report</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>mutationCoverage</goal>
                                 </goals>
                             </execution>
                         </executions>

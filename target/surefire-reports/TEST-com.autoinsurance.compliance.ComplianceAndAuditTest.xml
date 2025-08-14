@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.413" tests="9" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/test-classes:/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/classes:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.0/spring-boot-starter-web-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.0/spring-boot-starter-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot/3.2.0/spring-boot-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.0/spring-boot-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.0/spring-boot-starter-logging-3.2.0.jar:/Users/mvvkiran/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/Users/mvvkiran/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/Users/mvvkiran/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/Users/mvvkiran/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/Users/mvvkiran/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/Users/mvvkiran/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/mvvkiran/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.0/spring-boot-starter-json-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.0/spring-boot-starter-tomcat-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.16/tomcat-embed-websocket-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-web/6.1.1/spring-web-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-beans/6.1.1/spring-beans-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-webmvc/6.1.1/spring-webmvc-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-context/6.1.1/spring-context-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-expression/6.1.1/spring-expression-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.0/spring-boot-starter-data-jpa-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.0/spring-boot-starter-aop-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.0/spring-boot-starter-jdbc-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-jdbc/6.1.1/spring-jdbc-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/hibernate/orm/hibernate-core/6.3.1.Final/hibernate-core-6.3.1.Final.jar:/Users/mvvkiran/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/mvvkiran/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/mvvkiran/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/mvvkiran/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/Users/mvvkiran/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/Users/mvvkiran/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/Users/mvvkiran/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/mvvkiran/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/data/spring-data-jpa/3.2.0/spring-data-jpa-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/data/spring-data-commons/3.2.0/spring-data-commons-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-orm/6.1.1/spring-orm-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-tx/6.1.1/spring-tx-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-aspects/6.1.1/spring-aspects-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.0/spring-boot-starter-validation-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.16/tomcat-embed-el-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/mvvkiran/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.2.0/spring-boot-starter-security-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-aop/6.1.1/spring-aop-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-config/6.2.0/spring-security-config-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-web/6.2.0/spring-security-web-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.2.0/spring-boot-starter-actuator-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.2.0/spring-boot-actuator-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-actuator/3.2.0/spring-boot-actuator-3.2.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-observation/1.12.0/micrometer-observation-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-commons/1.12.0/micrometer-commons-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-jakarta9/1.12.0/micrometer-jakarta9-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-core/1.12.0/micrometer-core-1.12.0.jar:/Users/mvvkiran/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/mvvkiran/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/mvvkiran/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/Users/mvvkiran/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.2.0/springdoc-openapi-starter-webmvc-ui-2.2.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-api/2.2.0/springdoc-openapi-starter-webmvc-api-2.2.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-common/2.2.0/springdoc-openapi-starter-common-2.2.0.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-core-jakarta/2.2.15/swagger-core-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-models-jakarta/2.2.15/swagger-models-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.3/jackson-dataformat-yaml-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/webjars/swagger-ui/5.2.0/swagger-ui-5.2.0.jar:/Users/mvvkiran/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/Users/mvvkiran/.m2/repository/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar:/Users/mvvkiran/.m2/repository/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-api/0.12.3/jjwt-api-0.12.3.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-impl/0.12.3/jjwt-impl-0.12.3.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.12.3/jjwt-jackson-0.12.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.0/spring-boot-starter-test-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-test/3.2.0/spring-boot-test-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.0/spring-boot-test-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/mvvkiran/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/Users/mvvkiran/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/Users/mvvkiran/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/Users/mvvkiran/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/Users/mvvkiran/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/mvvkiran/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/Users/mvvkiran/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/Users/mvvkiran/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/Users/mvvkiran/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/Users/mvvkiran/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/Users/mvvkiran/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/mvvkiran/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/Users/mvvkiran/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/mvvkiran/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-core/6.1.1/spring-core-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-jcl/6.1.1/spring-jcl-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-test/6.1.1/spring-test-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-test/6.2.0/spring-security-test-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-core/6.2.0/spring-security-core-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-crypto/6.2.0/spring-security-crypto-6.2.0.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/rest-assured/5.3.2/rest-assured-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy/4.0.15/groovy-4.0.15.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy-xml/4.0.15/groovy-xml-4.0.15.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/mvvkiran/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/mvvkiran/.m2/repository/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/mvvkiran/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/json-path/5.3.2/json-path-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy-json/4.0.15/groovy-json-4.0.15.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/rest-assured-common/5.3.2/rest-assured-common-5.3.2.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/xml-path/5.3.2/xml-path-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/testcontainers/1.19.3/testcontainers-1.19.3.jar:/Users/mvvkiran/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mvvkiran/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/mvvkiran/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/Users/mvvkiran/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-api/3.3.4/docker-java-api-3.3.4.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.4/docker-java-transport-zerodep-3.3.4.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-transport/3.3.4/docker-java-transport-3.3.4.jar:/Users/mvvkiran/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/postgresql/1.19.3/postgresql-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/jdbc/1.19.3/jdbc-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/database-commons/1.19.3/database-commons-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/junit-jupiter/1.19.3/junit-jupiter-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/wiremock/wiremock-standalone/3.0.1/wiremock-standalone-3.0.1.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/provider/junit5/4.6.3/junit5-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/provider/4.6.3/provider-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/matchers/4.6.3/matchers-4.6.3.jar:/Users/mvvkiran/.m2/repository/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar:/Users/mvvkiran/.m2/repository/xerces/xercesImpl/2.12.2/xercesImpl-2.12.2.jar:/Users/mvvkiran/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/Users/mvvkiran/.m2/repository/org/atteo/evo-inflector/1.3/evo-inflector-1.3.jar:/Users/mvvkiran/.m2/repository/com/github/zafarkhaja/java-semver/0.9.0/java-semver-0.9.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.2.1/httpclient5-5.2.1.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.2.3/httpcore5-5.2.3.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.2.3/httpcore5-h2-5.2.3.jar:/Users/mvvkiran/.m2/repository/io/github/classgraph/classgraph/4.8.129/classgraph-4.8.129.jar:/Users/mvvkiran/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/mvvkiran/.m2/repository/com/github/ajalt/mordant/1.2.1/mordant-1.2.1.jar:/Users/mvvkiran/.m2/repository/com/github/ajalt/colormath/1.2.0/colormath-1.2.0.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/support/4.6.3/support-4.6.3.jar:/Users/mvvkiran/.m2/repository/io/github/microutils/kotlin-logging-jvm/3.0.4/kotlin-logging-jvm-3.0.4.jar:/Users/mvvkiran/.m2/repository/io/github/oshai/kotlin-logging-jvm/5.0.0/kotlin-logging-jvm-5.0.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/client5/httpclient5-fluent/5.2.1/httpclient5-fluent-5.2.1.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/pactbroker/4.6.3/pactbroker-4.6.3.jar:/Users/mvvkiran/.m2/repository/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar:/Users/mvvkiran/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/Users/mvvkiran/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/mvvkiran/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/mvvkiran/.m2/repository/com/google/errorprone/error_prone_annotations/2.11.0/error_prone_annotations-2.11.0.jar:/Users/mvvkiran/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/model/4.6.3/model-4.6.3.jar:/Users/mvvkiran/.m2/repository/org/apache/tika/tika-core/2.7.0/tika-core-2.7.0.jar:/Users/mvvkiran/.m2/repository/com/github/mifmif/generex/1.0.2/generex-1.0.2.jar:/Users/mvvkiran/.m2/repository/javax/mail/mail/1.5.0-b01/mail-1.5.0-b01.jar:/Users/mvvkiran/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-http-jvm/2.3.0/ktor-http-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.20/kotlin-stdlib-jdk7-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-jdk8/1.7.3/kotlinx-coroutines-jdk8-1.7.3.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.7.3/kotlinx-coroutines-core-jvm-1.7.3.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-utils-jvm/2.3.0/ktor-utils-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-io-jvm/2.3.0/ktor-io-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/mvvkiran/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/mvvkiran/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/Users/mvvkiran/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.20/kotlin-stdlib-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.9.20/kotlin-reflect-1.9.20.jar:/Users/mvvkiran/.m2/repository/io/pact/plugin/driver/core/0.4.0/core-0.4.0.jar:/Users/mvvkiran/.m2/repository/com/vdurmont/semver4j/3.1.0/semver4j-3.1.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-protobuf/1.53.0/grpc-protobuf-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-api/1.53.0/grpc-api-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-context/1.53.0/grpc-context-1.53.0.jar:/Users/mvvkiran/.m2/repository/com/google/protobuf/protobuf-java/3.21.7/protobuf-java-3.21.7.jar:/Users/mvvkiran/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.9.0/proto-google-common-protos-2.9.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-protobuf-lite/1.53.0/grpc-protobuf-lite-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-stub/1.53.0/grpc-stub-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-netty/1.53.0/grpc-netty-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-core/1.53.0/grpc-core-1.53.0.jar:/Users/mvvkiran/.m2/repository/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar:/Users/mvvkiran/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.21/animal-sniffer-annotations-1.21.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-http2/4.1.101.Final/netty-codec-http2-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-handler-proxy/4.1.101.Final/netty-handler-proxy-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-socks/4.1.101.Final/netty-codec-socks-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/perfmark/perfmark-api/0.25.0/perfmark-api-0.25.0.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.101.Final/netty-transport-native-unix-common-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/mvvkiran/.m2/repository/javax/json/javax.json-api/1.1.4/javax.json-api-1.1.4.jar:/Users/mvvkiran/.m2/repository/org/glassfish/javax.json/1.1.4/javax.json-1.1.4.jar:/Users/mvvkiran/.m2/repository/com/moandjiezana/toml/toml4j/0.7.2/toml4j-0.7.2.jar:/Users/mvvkiran/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/Users/mvvkiran/.m2/repository/org/rauschig/jarchivelib/1.2.0/jarchivelib-1.2.0.jar:/Users/mvvkiran/.m2/repository/com/michael-bull/kotlin-result/kotlin-result-jvm/1.1.14/kotlin-result-jvm-1.1.14.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.20/kotlin-stdlib-jdk8-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.20/kotlin-stdlib-common-1.9.20.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/consumer/junit5/4.6.3/junit5-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/consumer/4.6.3/consumer-4.6.3.jar:/Users/mvvkiran/.m2/repository/org/json/json/20230227/json-20230227.jar:/Users/mvvkiran/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/Users/mvvkiran/.m2/repository/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-handler/4.1.101.Final/netty-handler-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-common/4.1.101.Final/netty-common-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver/4.1.101.Final/netty-resolver-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-buffer/4.1.101.Final/netty-buffer-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport/4.1.101.Final/netty-transport-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec/4.1.101.Final/netty-codec-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-netty/2.3.0/ktor-server-netty-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.7.3/kotlinx-coroutines-core-1.7.3.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-network-tls-certificates/2.3.0/ktor-network-tls-certificates-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-call-logging/2.3.0/ktor-server-call-logging-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-core/2.3.0/ktor-server-core-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/atomicfu/0.19.0/atomicfu-0.19.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/atomicfu-jvm/0.19.0/atomicfu-jvm-0.19.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-utils/2.3.0/ktor-utils-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-io/2.3.0/ktor-io-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-http/2.3.0/ktor-http-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-serialization/2.3.0/ktor-serialization-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-websockets/2.3.0/ktor-websockets-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-events/2.3.0/ktor-events-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-app/3.10.3/gatling-app-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-core/3.10.3/gatling-core-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-netty-util/3.10.3/gatling-netty-util-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-util_2.13/0.0.5/gatling-shared-util_2.13-0.0.5.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-collection-compat_2.13/2.11.0/scala-collection-compat_2.13-2.11.0.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-native-io_uring/0.0.24.Final/netty-incubator-transport-native-io_uring-0.0.24.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.24.Final/netty-incubator-transport-classes-io_uring-0.0.24.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-native-io_uring/0.0.24.Final/netty-incubator-transport-native-io_uring-0.0.24.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-commons/3.10.3/gatling-commons-3.10.3.jar:/Users/mvvkiran/.m2/repository/com/typesafe/config/1.4.3/config-1.4.3.jar:/Users/mvvkiran/.m2/repository/io/github/metarank/cfor_2.13/0.3/cfor_2.13-0.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/scala-reflect/2.13.10/scala-reflect-2.13.10.jar:/Users/mvvkiran/.m2/repository/com/typesafe/scala-logging/scala-logging_2.13/3.9.5/scala-logging_2.13-3.9.5.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-enterprise/3.10.3/gatling-shared-enterprise-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jsonpath/3.10.3/gatling-jsonpath-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-model_2.13/0.0.4/gatling-shared-model_2.13-0.0.4.jar:/Users/mvvkiran/.m2/repository/io/suzaku/boopickle_2.13/1.3.3/boopickle_2.13-1.3.3.jar:/Users/mvvkiran/.m2/repository/com/typesafe/akka/akka-actor_2.13/2.6.20/akka-actor_2.13-2.6.20.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.13/1.0.0/scala-java8-compat_2.13-1.0.0.jar:/Users/mvvkiran/.m2/repository/com/typesafe/akka/akka-slf4j_2.13/2.6.20/akka-slf4j_2.13-2.6.20.jar:/Users/mvvkiran/.m2/repository/org/simpleflatmapper/lightning-csv/8.2.3/lightning-csv-8.2.3.jar:/Users/mvvkiran/.m2/repository/org/simpleflatmapper/sfm-util/8.2.3/sfm-util-8.2.3.jar:/Users/mvvkiran/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.1.8/caffeine-3.1.8.jar:/Users/mvvkiran/.m2/repository/io/pebbletemplates/pebble/3.2.2/pebble-3.2.2.jar:/Users/mvvkiran/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.13/2.3.0/scala-parser-combinators_2.13-2.3.0.jar:/Users/mvvkiran/.m2/repository/com/github/scopt/scopt_2.13/3.7.1/scopt_2.13-3.7.1.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-classes/2.0.61.Final/netty-tcnative-classes-2.0.61.Final.jar:/Users/mvvkiran/.m2/repository/com/softwaremill/quicklens/quicklens_2.13/1.9.6/quicklens_2.13-1.9.6.jar:/Users/mvvkiran/.m2/repository/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar:/Users/mvvkiran/.m2/repository/org/jodd/jodd-lagarto/6.0.6/jodd-lagarto-6.0.6.jar:/Users/mvvkiran/.m2/repository/org/jodd/jodd-util/6.2.2/jodd-util-6.2.2.jar:/Users/mvvkiran/.m2/repository/io/burt/jmespath-jackson/0.6.0/jmespath-jackson-0.6.0.jar:/Users/mvvkiran/.m2/repository/io/burt/jmespath-core/0.6.0/jmespath-core-0.6.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-core-java/3.10.3/gatling-core-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/net/jodah/typetools/0.6.3/typetools-0.6.3.jar:/Users/mvvkiran/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.7.3/spotbugs-annotations-4.7.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http/3.10.3/gatling-http-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http-client/3.10.3/gatling-http-client-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns/4.1.101.Final/netty-resolver-dns-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-dns/4.1.101.Final/netty-codec-dns-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.101.Final/netty-resolver-dns-native-macos-4.1.101.Final-osx-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.101.Final/netty-resolver-dns-classes-macos-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.101.Final/netty-resolver-dns-native-macos-4.1.101.Final-osx-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-windows-x86_64.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.13.0/brotli4j-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/service/1.13.0/service-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-linux-x86_64/1.13.0/native-linux-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-linux-aarch64/1.13.0/native-linux-aarch64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-osx-x86_64/1.13.0/native-osx-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.13.0/native-osx-aarch64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-windows-x86_64/1.13.0/native-windows-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http-java/3.10.3/gatling-http-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jms/3.10.3/gatling-jms-3.10.3.jar:/Users/mvvkiran/.m2/repository/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/com/eatthepath/fast-uuid/0.2.0/fast-uuid-0.2.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jms-java/3.10.3/gatling-jms-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-mqtt/3.10.3/gatling-mqtt-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-mqtt/4.1.101.Final/netty-codec-mqtt-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-epoll/4.1.101.Final/netty-transport-native-epoll-4.1.101.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.101.Final/netty-transport-classes-epoll-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-epoll/4.1.101.Final/netty-transport-native-epoll-4.1.101.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-mqtt-java/3.10.3/gatling-mqtt-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jdbc/3.10.3/gatling-jdbc-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jdbc-java/3.10.3/gatling-jdbc-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-redis/3.10.3/gatling-redis-3.10.3.jar:/Users/mvvkiran/.m2/repository/net/debasishg/redisclient_2.13/3.42/redisclient_2.13-3.42.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-redis-java/3.10.3/gatling-redis-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-graphite/3.10.3/gatling-graphite-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-charts/3.10.3/gatling-charts-3.10.3.jar:/Users/mvvkiran/.m2/repository/com/tdunning/t-digest/3.1/t-digest-3.1.jar:/Users/mvvkiran/.m2/repository/io/gatling/highcharts/gatling-charts-highcharts/3.10.3/gatling-charts-highcharts-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-recorder/3.10.3/gatling-recorder-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-swing_2.13/3.0.0/scala-swing_2.13-3.0.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-recorder-bc-shaded/1.77.0/gatling-recorder-bc-shaded-1.77.0.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-http/4.1.101.Final/netty-codec-http-4.1.101.Final.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="user.timezone" value="Asia/Kolkata"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/24.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/surefire/surefirebooter-20250814224735805_3.jar /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/surefire 2025-08-14T22-47-35_770-jvmRun1 surefire-20250814224735805_1tmp surefire_0-20250814224735805_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/test-classes:/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/classes:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.2.0/spring-boot-starter-web-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter/3.2.0/spring-boot-starter-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot/3.2.0/spring-boot-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.2.0/spring-boot-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.2.0/spring-boot-starter-logging-3.2.0.jar:/Users/mvvkiran/.m2/repository/ch/qos/logback/logback-classic/1.4.11/logback-classic-1.4.11.jar:/Users/mvvkiran/.m2/repository/ch/qos/logback/logback-core/1.4.11/logback-core-1.4.11.jar:/Users/mvvkiran/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.21.1/log4j-to-slf4j-2.21.1.jar:/Users/mvvkiran/.m2/repository/org/apache/logging/log4j/log4j-api/2.21.1/log4j-api-2.21.1.jar:/Users/mvvkiran/.m2/repository/org/slf4j/jul-to-slf4j/2.0.9/jul-to-slf4j-2.0.9.jar:/Users/mvvkiran/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/mvvkiran/.m2/repository/org/yaml/snakeyaml/2.2/snakeyaml-2.2.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.2.0/spring-boot-starter-json-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.15.3/jackson-datatype-jdk8-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.15.3/jackson-datatype-jsr310-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.15.3/jackson-module-parameter-names-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.2.0/spring-boot-starter-tomcat-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.16/tomcat-embed-core-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.16/tomcat-embed-websocket-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-web/6.1.1/spring-web-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-beans/6.1.1/spring-beans-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-webmvc/6.1.1/spring-webmvc-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-context/6.1.1/spring-context-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-expression/6.1.1/spring-expression-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.2.0/spring-boot-starter-data-jpa-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.2.0/spring-boot-starter-aop-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.2.0/spring-boot-starter-jdbc-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-jdbc/6.1.1/spring-jdbc-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/hibernate/orm/hibernate-core/6.3.1.Final/hibernate-core-6.3.1.Final.jar:/Users/mvvkiran/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/mvvkiran/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/mvvkiran/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.6.Final/hibernate-commons-annotations-6.0.6.Final.jar:/Users/mvvkiran/.m2/repository/io/smallrye/jandex/3.1.2/jandex-3.1.2.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/classmate/1.6.0/classmate-1.6.0.jar:/Users/mvvkiran/.m2/repository/net/bytebuddy/byte-buddy/1.14.10/byte-buddy-1.14.10.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.4/jaxb-runtime-4.0.4.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.4/jaxb-core-4.0.4.jar:/Users/mvvkiran/.m2/repository/org/eclipse/angus/angus-activation/2.0.1/angus-activation-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/glassfish/jaxb/txw2/4.0.4/txw2-4.0.4.jar:/Users/mvvkiran/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/mvvkiran/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/data/spring-data-jpa/3.2.0/spring-data-jpa-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/data/spring-data-commons/3.2.0/spring-data-commons-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-orm/6.1.1/spring-orm-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-tx/6.1.1/spring-tx-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-aspects/6.1.1/spring-aspects-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.2.0/spring-boot-starter-validation-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.16/tomcat-embed-el-10.1.16.jar:/Users/mvvkiran/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/mvvkiran/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.2.0/spring-boot-starter-security-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-aop/6.1.1/spring-aop-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-config/6.2.0/spring-security-config-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-web/6.2.0/spring-security-web-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.2.0/spring-boot-starter-actuator-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.2.0/spring-boot-actuator-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-actuator/3.2.0/spring-boot-actuator-3.2.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-observation/1.12.0/micrometer-observation-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-commons/1.12.0/micrometer-commons-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-jakarta9/1.12.0/micrometer-jakarta9-1.12.0.jar:/Users/mvvkiran/.m2/repository/io/micrometer/micrometer-core/1.12.0/micrometer-core-1.12.0.jar:/Users/mvvkiran/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/mvvkiran/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/Users/mvvkiran/.m2/repository/org/postgresql/postgresql/42.6.0/postgresql-42.6.0.jar:/Users/mvvkiran/.m2/repository/org/checkerframework/checker-qual/3.31.0/checker-qual-3.31.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-ui/2.2.0/springdoc-openapi-starter-webmvc-ui-2.2.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-webmvc-api/2.2.0/springdoc-openapi-starter-webmvc-api-2.2.0.jar:/Users/mvvkiran/.m2/repository/org/springdoc/springdoc-openapi-starter-common/2.2.0/springdoc-openapi-starter-common-2.2.0.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-core-jakarta/2.2.15/swagger-core-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.15/swagger-annotations-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/io/swagger/core/v3/swagger-models-jakarta/2.2.15/swagger-models-jakarta-2.2.15.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.15.3/jackson-dataformat-yaml-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/webjars/swagger-ui/5.2.0/swagger-ui-5.2.0.jar:/Users/mvvkiran/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/Users/mvvkiran/.m2/repository/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar:/Users/mvvkiran/.m2/repository/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-api/0.12.3/jjwt-api-0.12.3.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-impl/0.12.3/jjwt-impl-0.12.3.jar:/Users/mvvkiran/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.12.3/jjwt-jackson-0.12.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.3/jackson-databind-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.3/jackson-annotations-2.15.3.jar:/Users/mvvkiran/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.3/jackson-core-2.15.3.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.2.0/spring-boot-starter-test-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-test/3.2.0/spring-boot-test-3.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.2.0/spring-boot-test-autoconfigure-3.2.0.jar:/Users/mvvkiran/.m2/repository/com/jayway/jsonpath/json-path/2.8.0/json-path-2.8.0.jar:/Users/mvvkiran/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.1/jakarta.xml.bind-api-4.0.1.jar:/Users/mvvkiran/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.2/jakarta.activation-api-2.1.2.jar:/Users/mvvkiran/.m2/repository/net/minidev/json-smart/2.5.0/json-smart-2.5.0.jar:/Users/mvvkiran/.m2/repository/net/minidev/accessors-smart/2.5.0/accessors-smart-2.5.0.jar:/Users/mvvkiran/.m2/repository/org/ow2/asm/asm/9.3/asm-9.3.jar:/Users/mvvkiran/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar:/Users/mvvkiran/.m2/repository/org/awaitility/awaitility/4.2.0/awaitility-4.2.0.jar:/Users/mvvkiran/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.1/junit-jupiter-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.1/junit-jupiter-params-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:/Users/mvvkiran/.m2/repository/org/mockito/mockito-core/5.7.0/mockito-core-5.7.0.jar:/Users/mvvkiran/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.10/byte-buddy-agent-1.14.10.jar:/Users/mvvkiran/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/mvvkiran/.m2/repository/org/mockito/mockito-junit-jupiter/5.7.0/mockito-junit-jupiter-5.7.0.jar:/Users/mvvkiran/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/mvvkiran/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-core/6.1.1/spring-core-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-jcl/6.1.1/spring-jcl-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/spring-test/6.1.1/spring-test-6.1.1.jar:/Users/mvvkiran/.m2/repository/org/xmlunit/xmlunit-core/2.9.1/xmlunit-core-2.9.1.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-test/6.2.0/spring-security-test-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-core/6.2.0/spring-security-core-6.2.0.jar:/Users/mvvkiran/.m2/repository/org/springframework/security/spring-security-crypto/6.2.0/spring-security-crypto-6.2.0.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/rest-assured/5.3.2/rest-assured-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy/4.0.15/groovy-4.0.15.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy-xml/4.0.15/groovy-xml-4.0.15.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar:/Users/mvvkiran/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/mvvkiran/.m2/repository/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar:/Users/mvvkiran/.m2/repository/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/json-path/5.3.2/json-path-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/groovy/groovy-json/4.0.15/groovy-json-4.0.15.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/rest-assured-common/5.3.2/rest-assured-common-5.3.2.jar:/Users/mvvkiran/.m2/repository/io/rest-assured/xml-path/5.3.2/xml-path-5.3.2.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/testcontainers/1.19.3/testcontainers-1.19.3.jar:/Users/mvvkiran/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/mvvkiran/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/mvvkiran/.m2/repository/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/Users/mvvkiran/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-api/3.3.4/docker-java-api-3.3.4.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.3.4/docker-java-transport-zerodep-3.3.4.jar:/Users/mvvkiran/.m2/repository/com/github/docker-java/docker-java-transport/3.3.4/docker-java-transport-3.3.4.jar:/Users/mvvkiran/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/postgresql/1.19.3/postgresql-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/jdbc/1.19.3/jdbc-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/database-commons/1.19.3/database-commons-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/testcontainers/junit-jupiter/1.19.3/junit-jupiter-1.19.3.jar:/Users/mvvkiran/.m2/repository/org/wiremock/wiremock-standalone/3.0.1/wiremock-standalone-3.0.1.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/provider/junit5/4.6.3/junit5-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/provider/4.6.3/provider-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/matchers/4.6.3/matchers-4.6.3.jar:/Users/mvvkiran/.m2/repository/io/github/java-diff-utils/java-diff-utils/4.12/java-diff-utils-4.12.jar:/Users/mvvkiran/.m2/repository/xerces/xercesImpl/2.12.2/xercesImpl-2.12.2.jar:/Users/mvvkiran/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/Users/mvvkiran/.m2/repository/org/atteo/evo-inflector/1.3/evo-inflector-1.3.jar:/Users/mvvkiran/.m2/repository/com/github/zafarkhaja/java-semver/0.9.0/java-semver-0.9.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/client5/httpclient5/5.2.1/httpclient5-5.2.1.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/core5/httpcore5/5.2.3/httpcore5-5.2.3.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/core5/httpcore5-h2/5.2.3/httpcore5-h2-5.2.3.jar:/Users/mvvkiran/.m2/repository/io/github/classgraph/classgraph/4.8.129/classgraph-4.8.129.jar:/Users/mvvkiran/.m2/repository/commons-io/commons-io/2.11.0/commons-io-2.11.0.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/mvvkiran/.m2/repository/com/github/ajalt/mordant/1.2.1/mordant-1.2.1.jar:/Users/mvvkiran/.m2/repository/com/github/ajalt/colormath/1.2.0/colormath-1.2.0.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark/0.62.2/flexmark-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-ast/0.62.2/flexmark-util-ast-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-builder/0.62.2/flexmark-util-builder-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-collection/0.62.2/flexmark-util-collection-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-data/0.62.2/flexmark-util-data-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-dependency/0.62.2/flexmark-util-dependency-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-format/0.62.2/flexmark-util-format-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-html/0.62.2/flexmark-util-html-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-misc/0.62.2/flexmark-util-misc-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-sequence/0.62.2/flexmark-util-sequence-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-visitor/0.62.2/flexmark-util-visitor-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-ext-tables/0.62.2/flexmark-ext-tables-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util/0.62.2/flexmark-util-0.62.2.jar:/Users/mvvkiran/.m2/repository/com/vladsch/flexmark/flexmark-util-options/0.62.2/flexmark-util-options-0.62.2.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/support/4.6.3/support-4.6.3.jar:/Users/mvvkiran/.m2/repository/io/github/microutils/kotlin-logging-jvm/3.0.4/kotlin-logging-jvm-3.0.4.jar:/Users/mvvkiran/.m2/repository/io/github/oshai/kotlin-logging-jvm/5.0.0/kotlin-logging-jvm-5.0.0.jar:/Users/mvvkiran/.m2/repository/org/apache/httpcomponents/client5/httpclient5-fluent/5.2.1/httpclient5-fluent-5.2.1.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/pactbroker/4.6.3/pactbroker-4.6.3.jar:/Users/mvvkiran/.m2/repository/com/google/guava/guava/31.1-jre/guava-31.1-jre.jar:/Users/mvvkiran/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar:/Users/mvvkiran/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/Users/mvvkiran/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/mvvkiran/.m2/repository/com/google/errorprone/error_prone_annotations/2.11.0/error_prone_annotations-2.11.0.jar:/Users/mvvkiran/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/core/model/4.6.3/model-4.6.3.jar:/Users/mvvkiran/.m2/repository/org/apache/tika/tika-core/2.7.0/tika-core-2.7.0.jar:/Users/mvvkiran/.m2/repository/com/github/mifmif/generex/1.0.2/generex-1.0.2.jar:/Users/mvvkiran/.m2/repository/javax/mail/mail/1.5.0-b01/mail-1.5.0-b01.jar:/Users/mvvkiran/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-http-jvm/2.3.0/ktor-http-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.20/kotlin-stdlib-jdk7-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-jdk8/1.7.3/kotlinx-coroutines-jdk8-1.7.3.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.7.3/kotlinx-coroutines-core-jvm-1.7.3.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-utils-jvm/2.3.0/ktor-utils-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-io-jvm/2.3.0/ktor-io-jvm-2.3.0.jar:/Users/mvvkiran/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/mvvkiran/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/mvvkiran/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/Users/mvvkiran/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/mvvkiran/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/Users/mvvkiran/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.9.20/kotlin-stdlib-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-reflect/1.9.20/kotlin-reflect-1.9.20.jar:/Users/mvvkiran/.m2/repository/io/pact/plugin/driver/core/0.4.0/core-0.4.0.jar:/Users/mvvkiran/.m2/repository/com/vdurmont/semver4j/3.1.0/semver4j-3.1.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-protobuf/1.53.0/grpc-protobuf-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-api/1.53.0/grpc-api-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-context/1.53.0/grpc-context-1.53.0.jar:/Users/mvvkiran/.m2/repository/com/google/protobuf/protobuf-java/3.21.7/protobuf-java-3.21.7.jar:/Users/mvvkiran/.m2/repository/com/google/api/grpc/proto-google-common-protos/2.9.0/proto-google-common-protos-2.9.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-protobuf-lite/1.53.0/grpc-protobuf-lite-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-stub/1.53.0/grpc-stub-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-netty/1.53.0/grpc-netty-1.53.0.jar:/Users/mvvkiran/.m2/repository/io/grpc/grpc-core/1.53.0/grpc-core-1.53.0.jar:/Users/mvvkiran/.m2/repository/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4.jar:/Users/mvvkiran/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.21/animal-sniffer-annotations-1.21.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-http2/4.1.101.Final/netty-codec-http2-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-handler-proxy/4.1.101.Final/netty-handler-proxy-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-socks/4.1.101.Final/netty-codec-socks-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/perfmark/perfmark-api/0.25.0/perfmark-api-0.25.0.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.101.Final/netty-transport-native-unix-common-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/mvvkiran/.m2/repository/javax/json/javax.json-api/1.1.4/javax.json-api-1.1.4.jar:/Users/mvvkiran/.m2/repository/org/glassfish/javax.json/1.1.4/javax.json-1.1.4.jar:/Users/mvvkiran/.m2/repository/com/moandjiezana/toml/toml4j/0.7.2/toml4j-0.7.2.jar:/Users/mvvkiran/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/Users/mvvkiran/.m2/repository/org/rauschig/jarchivelib/1.2.0/jarchivelib-1.2.0.jar:/Users/mvvkiran/.m2/repository/com/michael-bull/kotlin-result/kotlin-result-jvm/1.1.14/kotlin-result-jvm-1.1.14.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.20/kotlin-stdlib-jdk8-1.9.20.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.9.20/kotlin-stdlib-common-1.9.20.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/consumer/junit5/4.6.3/junit5-4.6.3.jar:/Users/mvvkiran/.m2/repository/au/com/dius/pact/consumer/4.6.3/consumer-4.6.3.jar:/Users/mvvkiran/.m2/repository/org/json/json/20230227/json-20230227.jar:/Users/mvvkiran/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/Users/mvvkiran/.m2/repository/dk/brics/automaton/automaton/1.11-8/automaton-1.11-8.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-handler/4.1.101.Final/netty-handler-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-common/4.1.101.Final/netty-common-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver/4.1.101.Final/netty-resolver-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-buffer/4.1.101.Final/netty-buffer-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport/4.1.101.Final/netty-transport-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec/4.1.101.Final/netty-codec-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-netty/2.3.0/ktor-server-netty-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/kotlinx-coroutines-core/1.7.3/kotlinx-coroutines-core-1.7.3.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-network-tls-certificates/2.3.0/ktor-network-tls-certificates-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-call-logging/2.3.0/ktor-server-call-logging-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-server-core/2.3.0/ktor-server-core-2.3.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/atomicfu/0.19.0/atomicfu-0.19.0.jar:/Users/mvvkiran/.m2/repository/org/jetbrains/kotlinx/atomicfu-jvm/0.19.0/atomicfu-jvm-0.19.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-utils/2.3.0/ktor-utils-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-io/2.3.0/ktor-io-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-http/2.3.0/ktor-http-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-serialization/2.3.0/ktor-serialization-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-websockets/2.3.0/ktor-websockets-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/ktor/ktor-events/2.3.0/ktor-events-2.3.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-app/3.10.3/gatling-app-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/scala-library/2.13.12/scala-library-2.13.12.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-core/3.10.3/gatling-core-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-netty-util/3.10.3/gatling-netty-util-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-util_2.13/0.0.5/gatling-shared-util_2.13-0.0.5.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-collection-compat_2.13/2.11.0/scala-collection-compat_2.13-2.11.0.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-native-io_uring/0.0.24.Final/netty-incubator-transport-native-io_uring-0.0.24.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-classes-io_uring/0.0.24.Final/netty-incubator-transport-classes-io_uring-0.0.24.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/incubator/netty-incubator-transport-native-io_uring/0.0.24.Final/netty-incubator-transport-native-io_uring-0.0.24.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-commons/3.10.3/gatling-commons-3.10.3.jar:/Users/mvvkiran/.m2/repository/com/typesafe/config/1.4.3/config-1.4.3.jar:/Users/mvvkiran/.m2/repository/io/github/metarank/cfor_2.13/0.3/cfor_2.13-0.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/scala-reflect/2.13.10/scala-reflect-2.13.10.jar:/Users/mvvkiran/.m2/repository/com/typesafe/scala-logging/scala-logging_2.13/3.9.5/scala-logging_2.13-3.9.5.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-enterprise/3.10.3/gatling-shared-enterprise-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jsonpath/3.10.3/gatling-jsonpath-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-shared-model_2.13/0.0.4/gatling-shared-model_2.13-0.0.4.jar:/Users/mvvkiran/.m2/repository/io/suzaku/boopickle_2.13/1.3.3/boopickle_2.13-1.3.3.jar:/Users/mvvkiran/.m2/repository/com/typesafe/akka/akka-actor_2.13/2.6.20/akka-actor_2.13-2.6.20.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.13/1.0.0/scala-java8-compat_2.13-1.0.0.jar:/Users/mvvkiran/.m2/repository/com/typesafe/akka/akka-slf4j_2.13/2.6.20/akka-slf4j_2.13-2.6.20.jar:/Users/mvvkiran/.m2/repository/org/simpleflatmapper/lightning-csv/8.2.3/lightning-csv-8.2.3.jar:/Users/mvvkiran/.m2/repository/org/simpleflatmapper/sfm-util/8.2.3/sfm-util-8.2.3.jar:/Users/mvvkiran/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.1.8/caffeine-3.1.8.jar:/Users/mvvkiran/.m2/repository/io/pebbletemplates/pebble/3.2.2/pebble-3.2.2.jar:/Users/mvvkiran/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.13/2.3.0/scala-parser-combinators_2.13-2.3.0.jar:/Users/mvvkiran/.m2/repository/com/github/scopt/scopt_2.13/3.7.1/scopt_2.13-3.7.1.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-classes/2.0.61.Final/netty-tcnative-classes-2.0.61.Final.jar:/Users/mvvkiran/.m2/repository/com/softwaremill/quicklens/quicklens_2.13/1.9.6/quicklens_2.13-1.9.6.jar:/Users/mvvkiran/.m2/repository/net/sf/saxon/Saxon-HE/10.6/Saxon-HE-10.6.jar:/Users/mvvkiran/.m2/repository/org/jodd/jodd-lagarto/6.0.6/jodd-lagarto-6.0.6.jar:/Users/mvvkiran/.m2/repository/org/jodd/jodd-util/6.2.2/jodd-util-6.2.2.jar:/Users/mvvkiran/.m2/repository/io/burt/jmespath-jackson/0.6.0/jmespath-jackson-0.6.0.jar:/Users/mvvkiran/.m2/repository/io/burt/jmespath-core/0.6.0/jmespath-core-0.6.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-core-java/3.10.3/gatling-core-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/net/jodah/typetools/0.6.3/typetools-0.6.3.jar:/Users/mvvkiran/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.7.3/spotbugs-annotations-4.7.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http/3.10.3/gatling-http-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http-client/3.10.3/gatling-http-client-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns/4.1.101.Final/netty-resolver-dns-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-dns/4.1.101.Final/netty-codec-dns-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.101.Final/netty-resolver-dns-native-macos-4.1.101.Final-osx-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-classes-macos/4.1.101.Final/netty-resolver-dns-classes-macos-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-resolver-dns-native-macos/4.1.101.Final/netty-resolver-dns-native-macos-4.1.101.Final-osx-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-osx-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-tcnative-boringssl-static/2.0.61.Final/netty-tcnative-boringssl-static-2.0.61.Final-windows-x86_64.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/brotli4j/1.13.0/brotli4j-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/service/1.13.0/service-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-linux-x86_64/1.13.0/native-linux-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-linux-aarch64/1.13.0/native-linux-aarch64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-osx-x86_64/1.13.0/native-osx-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-osx-aarch64/1.13.0/native-osx-aarch64-1.13.0.jar:/Users/mvvkiran/.m2/repository/com/aayushatharva/brotli4j/native-windows-x86_64/1.13.0/native-windows-x86_64-1.13.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-http-java/3.10.3/gatling-http-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jms/3.10.3/gatling-jms-3.10.3.jar:/Users/mvvkiran/.m2/repository/javax/jms/javax.jms-api/2.0.1/javax.jms-api-2.0.1.jar:/Users/mvvkiran/.m2/repository/com/eatthepath/fast-uuid/0.2.0/fast-uuid-0.2.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jms-java/3.10.3/gatling-jms-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-mqtt/3.10.3/gatling-mqtt-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-mqtt/4.1.101.Final/netty-codec-mqtt-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-epoll/4.1.101.Final/netty-transport-native-epoll-4.1.101.Final-linux-x86_64.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-classes-epoll/4.1.101.Final/netty-transport-classes-epoll-4.1.101.Final.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-transport-native-epoll/4.1.101.Final/netty-transport-native-epoll-4.1.101.Final-linux-aarch_64.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-mqtt-java/3.10.3/gatling-mqtt-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jdbc/3.10.3/gatling-jdbc-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-jdbc-java/3.10.3/gatling-jdbc-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-redis/3.10.3/gatling-redis-3.10.3.jar:/Users/mvvkiran/.m2/repository/net/debasishg/redisclient_2.13/3.42/redisclient_2.13-3.42.jar:/Users/mvvkiran/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-redis-java/3.10.3/gatling-redis-java-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-graphite/3.10.3/gatling-graphite-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-charts/3.10.3/gatling-charts-3.10.3.jar:/Users/mvvkiran/.m2/repository/com/tdunning/t-digest/3.1/t-digest-3.1.jar:/Users/mvvkiran/.m2/repository/io/gatling/highcharts/gatling-charts-highcharts/3.10.3/gatling-charts-highcharts-3.10.3.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-recorder/3.10.3/gatling-recorder-3.10.3.jar:/Users/mvvkiran/.m2/repository/org/scala-lang/modules/scala-swing_2.13/3.0.0/scala-swing_2.13-3.0.0.jar:/Users/mvvkiran/.m2/repository/io/gatling/gatling-recorder-bc-shaded/1.77.0/gatling-recorder-bc-shaded-1.77.0.jar:/Users/mvvkiran/.m2/repository/io/netty/netty-codec-http/4.1.101.Final/netty-codec-http-4.1.101.Final.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/mvvkiran"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/24.0.2/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/target/surefire/surefirebooter-20250814224735805_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="24.0.2"/>
+    <property name="user.name" value="mvvkiran"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.6"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/mvvkiran/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/22/fb3lvtq50697hsxlhbh9_lnm0000gn/T/"/>
+    <property name="com.zaxxer.hikari.pool_number" value="8"/>
+    <property name="catalina.home" value="/private/var/folders/22/fb3lvtq50697hsxlhbh9_lnm0000gn/T/tomcat.0.16026108724739206254"/>
+    <property name="java.version" value="24.0.2"/>
+    <property name="user.dir" value="/Users/mvvkiran/Workspace/ExampleApplicationWithTDD"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="39792"/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="catalina.base" value="/private/var/folders/22/fb3lvtq50697hsxlhbh9_lnm0000gn/T/tomcat.0.3075037317716906159"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/mvvkiran/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="24.0.2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="68.0"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %msg%n"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[auto-insurance-api] "/>
+  </properties>
+  <testcase name="should_EnsureDataRetentionComplianceForQuoteRecords" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.022">
+    <system-out><![CDATA[2025-08-14 22:47:45 - Could not detect default configuration classes for test class [com.autoinsurance.compliance.ComplianceAndAuditTest]: ComplianceAndAuditTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-08-14 22:47:45 - Found @SpringBootConfiguration com.autoinsurance.AutoInsuranceApiApplication for test class com.autoinsurance.compliance.ComplianceAndAuditTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+&amp#27;[32m :: Spring Boot :: &amp#27;[39m              &amp#27;[2m (v3.2.0)&amp#27;[0;39m
+
+2025-08-14 22:47:45 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/Users/mvvkiran/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/Users/mvvkiran/.m2/repository/org/json/json/20230227/json-20230227.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-08-14 22:47:45 - Starting ComplianceAndAuditTest using Java 24.0.2 with PID 39792 (started by mvvkiran in /Users/mvvkiran/Workspace/ExampleApplicationWithTDD)
+2025-08-14 22:47:45 - Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-08-14 22:47:45 - No active profile set, falling back to 1 default profile: "default"
+2025-08-14 22:47:45 - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@78cd456a
+2025-08-14 22:47:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-14 22:47:45 - Finished Spring Data repository scanning in 3 ms. Found 1 JPA repository interface.
+2025-08-14 22:47:45 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-14 22:47:45 - HHH000026: Second-level cache disabled
+2025-08-14 22:47:45 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-14 22:47:45 - HikariPool-8 - Starting...
+2025-08-14 22:47:45 - HikariPool-8 - Added connection conn97: url=jdbc:h2:mem:testdb_compliance user=SA
+2025-08-14 22:47:45 - HikariPool-8 - Start completed.
+2025-08-14 22:47:45 - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-08-14 22:47:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-14 22:47:45 - 
+    drop table if exists quote_discounts cascade 
+2025-08-14 22:47:45 - 
+    drop table if exists quotes cascade 
+2025-08-14 22:47:45 - 
+    create table quote_discounts (
+        discount_description varchar(255),
+        quote_id varchar(255) not null
+    )
+2025-08-14 22:47:45 - 
+    create table quotes (
+        coverage_amount numeric(38,2) not null,
+        deductible numeric(38,2) not null,
+        monthly_premium numeric(38,2) not null,
+        premium numeric(38,2) not null,
+        valid_until date not null,
+        vehicle_current_value numeric(38,2) not null,
+        vehicle_year integer not null,
+        created_at timestamp(6) not null,
+        id varchar(255) not null,
+        primary_driver_license varchar(255) not null,
+        primary_driver_name varchar(255) not null,
+        vehicle_make varchar(255) not null,
+        vehicle_model varchar(255) not null,
+        vehicle_vin varchar(255) not null,
+        primary key (id)
+    )
+2025-08-14 22:47:45 - 
+    alter table if exists quote_discounts 
+       add constraint FK1h7jxtsqsdn673awsiyn0jarm 
+       foreign key (quote_id) 
+       references quotes
+2025-08-14 22:47:45 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-14 22:47:45 - Exposing 3 endpoint(s) beneath base path '/actuator'
+2025-08-14 22:47:45 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-14 22:47:45 - 
+
+Using generated security password: fcfedb11-ad72-487b-95cd-51f704216412
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-08-14 22:47:45 - 11 mappings in 'requestMappingHandlerMapping'
+2025-08-14 22:47:45 - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2025-08-14 22:47:45 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63a9322, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cbee652, org.springframework.security.web.context.SecurityContextHolderFilter@268a1200, org.springframework.security.web.header.HeaderWriterFilter@4cd8cb91, org.springframework.web.filter.CorsFilter@29d11eb3, org.springframework.security.web.authentication.logout.LogoutFilter@53d48d84, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@102cb91b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ec9e26f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64797d9d, org.springframework.security.web.access.ExceptionTranslationFilter@66534f5b, org.springframework.security.web.access.intercept.AuthorizationFilter@14a330d4]
+2025-08-14 22:47:45 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-08-14 22:47:45 - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-08-14 22:47:46 - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb_compliance'
+2025-08-14 22:47:46 - Filter 'webMvcObservationFilter' configured for use
+2025-08-14 22:47:46 - Initializing Spring TestDispatcherServlet ''
+2025-08-14 22:47:46 - Initializing Servlet ''
+2025-08-14 22:47:46 - Completed initialization in 0 ms
+2025-08-14 22:47:46 - Started ComplianceAndAuditTest in 0.338 seconds (process running for 10.195)
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Cache miss for REQUEST dispatch to '/api/v1/quotes' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@4469945b]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 234a0530-75c6-41ec-8ab6-8682c5e79513, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 234a0530-75c6-41ec-8ab6-8682c5e79513 and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@ae7891d]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14 22:47:46 - Securing GET /api/v1/quotes/234a0530-75c6-41ec-8ab6-8682c5e79513
+2025-08-14 22:47:46 - Secured GET /api/v1/quotes/234a0530-75c6-41ec-8ab6-8682c5e79513
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#getQuote(String)
+2025-08-14 22:47:46 - Retrieving quote with ID: 234a0530-75c6-41ec-8ab6-8682c5e79513
+2025-08-14 22:47:46 - Retrieving quote with ID: 234a0530-75c6-41ec-8ab6-8682c5e79513
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - Quote retrieved successfully for ID: 234a0530-75c6-41ec-8ab6-8682c5e79513
+2025-08-14 22:47:46 - Using 'application/json', given [application/json] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@53b028c9]
+2025-08-14 22:47:46 - 
+    select
+        da1_0.quote_id,
+        da1_0.discount_description 
+    from
+        quote_discounts da1_0 
+    where
+        da1_0.quote_id=?
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Data Retention Compliance:
+  Quote ID: 234a0530-75c6-41ec-8ab6-8682c5e79513
+  Created: Current timestamp
+  Valid Until: 2025-09-13
+  ✓ Quote accessible during validity period
+  ✓ Data retention period: 30 days from now
+  ✓ Compliance with quote record retention requirements
+]]></system-out>
+  </testcase>
+  <testcase name="should_EnforceQuoteValidityPeriodsForRegulatoryCompliance" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.004">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@1e540834]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 00d41ca7-2e12-4fd1-b6aa-a3143483456c, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 00d41ca7-2e12-4fd1-b6aa-a3143483456c and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@2e6634b1]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Quote Validity Compliance:
+  Quote Generated: 2025-08-14
+  Valid Until: 2025-09-13
+  Validity Period: 30 days
+  ✓ Quote validity period within regulatory limits
+  ✓ Expiration date properly set
+]]></system-out>
+  </testcase>
+  <testcase name="should_EnsureApiResponseConsistencyAndStandardsCompliance" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.01">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@2b526d79]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: b65d4bb9-7a46-4c7d-9cbc-43e6e793db13, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: b65d4bb9-7a46-4c7d-9cbc-43e6e793db13 and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@70f43d38]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@3536f638]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 6a1beb23-d124-4a4a-b2d3-02fafaaf719a, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 6a1beb23-d124-4a4a-b2d3-02fafaaf719a and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@672a3482]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@10809a26]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: ac2e2206-b4eb-459b-bc72-8a3a992185a8, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: ac2e2206-b4eb-459b-bc72-8a3a992185a8 and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@5f21b13d]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+API Response Standards Compliance:
+  Quote 1 ID: b65d4bb9...
+  ✓ Consistent JSON structure
+  ✓ Required fields present
+  Quote 2 ID: 6a1beb23...
+  ✓ Consistent JSON structure
+  ✓ Required fields present
+  Quote 3 ID: ac2e2206...
+  ✓ Consistent JSON structure
+  ✓ Required fields present
+  ✓ Unique quote IDs generated
+]]></system-out>
+  </testcase>
+  <testcase name="should_HandleErrorResponsesInComplianceWithStandards" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.005">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@749dcfb4]
+2025-08-14 22:47:46 - Using @ExceptionHandler com.autoinsurance.common.exception.GlobalExceptionHandler#handleValidationErrors(MethodArgumentNotValidException)
+2025-08-14 22:47:46 - Validation error: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 4 errors: [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [null]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'vehicle': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle,NotNull.vehicle,NotNull.com.autoinsurance.quote.dto.VehicleDto,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle,vehicle]; arguments []; default message [vehicle]]; default message [Vehicle information is required]] 
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-14 22:47:46 - Writing [{message=deductible: Deductible is required; drivers: At least one driver is required; coverageAmoun (truncated)...]
+2025-08-14 22:47:46 - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 4 errors: [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [null]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'vehicle': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle,NotNull.vehicle,NotNull.com.autoinsurance.quote.dto.VehicleDto,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle,vehicle]; arguments []; default message [vehicle]]; default message [Vehicle information is required]] ]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Error Response Compliance Check 1:
+  Request: {}
+  Response: {"message":"deductible: Deductible is required; drivers: At least one driver is required; coverageAmount: Coverage amount is required; vehicle: Vehicle information is required; ","timestamp":1755191866078,"errorCode":"VALIDATION_ERROR"}
+  ✓ Standardized error format
+  ✓ No internal implementation details exposed
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@2f597bef]
+2025-08-14 22:47:46 - Using @ExceptionHandler com.autoinsurance.common.exception.GlobalExceptionHandler#handleValidationErrors(MethodArgumentNotValidException)
+2025-08-14 22:47:46 - Validation error: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 4 errors: [Field error in object 'quoteRequestDto' on field 'vehicle': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle,NotNull.vehicle,NotNull.com.autoinsurance.quote.dto.VehicleDto,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle,vehicle]; arguments []; default message [vehicle]]; default message [Vehicle information is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [null]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] 
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-14 22:47:46 - Writing [{message=vehicle: Vehicle information is required; coverageAmount: Coverage amount is required; dedu (truncated)...]
+2025-08-14 22:47:46 - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 4 errors: [Field error in object 'quoteRequestDto' on field 'vehicle': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle,NotNull.vehicle,NotNull.com.autoinsurance.quote.dto.VehicleDto,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle,vehicle]; arguments []; default message [vehicle]]; default message [Vehicle information is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [null]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] ]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Error Response Compliance Check 2:
+  Request: {"vehicle": null}
+  Response: {"message":"vehicle: Vehicle information is required; coverageAmount: Coverage amount is required; deductible: Deductible is required; drivers: At least one driver is required; ","timestamp":1755191866080,"errorCode":"VALIDATION_ERROR"}
+  ✓ Standardized error format
+  ✓ No internal implementation details exposed
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@169ea402]
+2025-08-14 22:47:46 - Using @ExceptionHandler com.autoinsurance.common.exception.GlobalExceptionHandler#handleValidationErrors(MethodArgumentNotValidException)
+2025-08-14 22:47:46 - Validation error: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 8 errors: [Field error in object 'quoteRequestDto' on field 'vehicle.model': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.model,NotBlank.vehicle.model,NotBlank.model,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.model,vehicle.model]; arguments []; default message [vehicle.model]]; default message [Vehicle model is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.vin': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.vin,NotBlank.vehicle.vin,NotBlank.vin,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.vin,vehicle.vin]; arguments []; default message [vehicle.vin]]; default message [VIN is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.year': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle.year,NotNull.vehicle.year,NotNull.year,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.year,vehicle.year]; arguments []; default message [vehicle.year]]; default message [Vehicle year is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [[]]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.currentValue': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle.currentValue,NotNull.vehicle.currentValue,NotNull.currentValue,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.currentValue,vehicle.currentValue]; arguments []; default message [vehicle.currentValue]]; default message [Vehicle current value is required]] [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.make': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.make,NotBlank.vehicle.make,NotBlank.make,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.make,vehicle.make]; arguments []; default message [vehicle.make]]; default message [Vehicle make is required]] 
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-08-14 22:47:46 - Writing [{message=vehicle.model: Vehicle model is required; coverageAmount: Coverage amount is required; vehi (truncated)...]
+2025-08-14 22:47:46 - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<com.autoinsurance.quote.dto.QuoteResponseDto> com.autoinsurance.quote.controller.QuoteController.createQuote(com.autoinsurance.quote.dto.QuoteRequestDto) with 8 errors: [Field error in object 'quoteRequestDto' on field 'vehicle.model': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.model,NotBlank.vehicle.model,NotBlank.model,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.model,vehicle.model]; arguments []; default message [vehicle.model]]; default message [Vehicle model is required]] [Field error in object 'quoteRequestDto' on field 'coverageAmount': rejected value [null]; codes [NotNull.quoteRequestDto.coverageAmount,NotNull.coverageAmount,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.coverageAmount,coverageAmount]; arguments []; default message [coverageAmount]]; default message [Coverage amount is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.vin': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.vin,NotBlank.vehicle.vin,NotBlank.vin,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.vin,vehicle.vin]; arguments []; default message [vehicle.vin]]; default message [VIN is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.year': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle.year,NotNull.vehicle.year,NotNull.year,NotNull.java.lang.Integer,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.year,vehicle.year]; arguments []; default message [vehicle.year]]; default message [Vehicle year is required]] [Field error in object 'quoteRequestDto' on field 'drivers': rejected value [[]]; codes [NotEmpty.quoteRequestDto.drivers,NotEmpty.drivers,NotEmpty.java.util.List,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.drivers,drivers]; arguments []; default message [drivers]]; default message [At least one driver is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.currentValue': rejected value [null]; codes [NotNull.quoteRequestDto.vehicle.currentValue,NotNull.vehicle.currentValue,NotNull.currentValue,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.currentValue,vehicle.currentValue]; arguments []; default message [vehicle.currentValue]]; default message [Vehicle current value is required]] [Field error in object 'quoteRequestDto' on field 'deductible': rejected value [null]; codes [NotNull.quoteRequestDto.deductible,NotNull.deductible,NotNull.java.math.BigDecimal,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.deductible,deductible]; arguments []; default message [deductible]]; default message [Deductible is required]] [Field error in object 'quoteRequestDto' on field 'vehicle.make': rejected value [null]; codes [NotBlank.quoteRequestDto.vehicle.make,NotBlank.vehicle.make,NotBlank.make,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [quoteRequestDto.vehicle.make,vehicle.make]; arguments []; default message [vehicle.make]]; default message [Vehicle make is required]] ]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Error Response Compliance Check 3:
+  Request: {"vehicle": {}, "drivers": []}
+  Response: {"message":"vehicle.model: Vehicle model is required; coverageAmount: Coverage amount is required; vehicle.vin: VIN is required; vehicle.year: Vehicle year is required; drivers: At least one driver is required; vehicle.currentValue: Vehicle current value is required; deductible: Deductible is required; vehicle.make: Vehicle make is required; ","timestamp":1755191866081,"errorCode":"VALIDATION_ERROR"}
+  ✓ Standardized error format
+  ✓ No internal implementation details exposed
+]]></system-out>
+  </testcase>
+  <testcase name="should_ValidateStateSpecificInsuranceRequirements" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.009">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@1475af2c]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Test Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Test Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Total discount applied: 0% ($0.00) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 8af8e742-4f91-43a8-90d0-48a9d448d28a, premium: 130.63, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 8af8e742-4f91-43a8-90d0-48a9d448d28a and premium: 130.63
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@6fca71cc]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+State Compliance Check - CA:
+  Minimum Coverage: $25000.00
+  Quote Premium: $130.63
+  ✓ State requirements validated
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@10059deb]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Test Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Test Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Total discount applied: 0% ($0.00) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: a6e4adbd-bde3-4157-9152-8a10eddf7c9a, premium: 130.63, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: a6e4adbd-bde3-4157-9152-8a10eddf7c9a and premium: 130.63
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@7c92e5ea]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+State Compliance Check - NY:
+  Minimum Coverage: $25000.00
+  Quote Premium: $130.63
+  ✓ State requirements validated
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@9bb07b3]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Test Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Test Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 30000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 30000.00
+2025-08-14 22:47:46 - Total discount applied: 0% ($0.00) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 07b0de8b-edc7-4241-b1cd-ef19dd84b3ac, premium: 156.75, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 07b0de8b-edc7-4241-b1cd-ef19dd84b3ac and premium: 156.75
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@75e8f112]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+State Compliance Check - TX:
+  Minimum Coverage: $30000.00
+  Quote Premium: $156.75
+  ✓ State requirements validated
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@70a0827]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Test Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Test Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 25000.00
+2025-08-14 22:47:46 - Total discount applied: 0% ($0.00) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: eefcc0bc-2e7e-4aea-8192-43d71525fa6e, premium: 130.63, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: eefcc0bc-2e7e-4aea-8192-43d71525fa6e and premium: 130.63
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@30c81ff2]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+State Compliance Check - FL:
+  Minimum Coverage: $25000.00
+  Quote Premium: $130.63
+  ✓ State requirements validated
+]]></system-out>
+  </testcase>
+  <testcase name="should_MaintainDataPrivacyByNotExposingSensitiveDriverInformation" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.003">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@52aebb2f]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 0c685ffb-1e47-4c5f-9dc3-0b6d07f0c847, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 0c685ffb-1e47-4c5f-9dc3-0b6d07f0c847 and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@6ef83ad3]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Data Privacy Compliance Check:
+  Quote Response: {"quoteId":"0c685ffb-1e47-4c5f-9dc3-0b6d07f0c847","premium":444.12,"monthlyPremium":37.01,"coverageAmount":100000.00,"deductible":1000.00,"validUntil":"2025-09-13","discountsApplied":["Safe Driver Discount - 15%"]}
+  ✓ PII not exposed in API response
+  ✓ Only business-relevant quote data returned
+]]></system-out>
+  </testcase>
+  <testcase name="should_ComplyWithInsuranceRateCalculationTransparencyRequirements" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.004">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@10502228]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Young Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Young Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Total discount applied: 0% ($0.00) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 0ba1645c-fc41-44ea-a67c-e1fd87ec3f83, premium: 825.00, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 0ba1645c-fc41-44ea-a67c-e1fd87ec3f83 and premium: 825.00
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@4e33ee2c]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@4b2bce2]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: Safe Driver
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: Safe Driver
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: Safe
+2025-08-14 22:47:46 - Applied multi-policy discount for driver: Safe
+2025-08-14 22:47:46 - Total discount applied: 25.00% ($130.6250) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 4c99da06-89a2-4252-bad7-b99f14784f84, premium: 391.87, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 4c99da06-89a2-4252-bad7-b99f14784f84 and premium: 391.87
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@7a1ba0cf]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Rate Calculation Transparency:
+  Young Driver Premium: $825.00
+  Safe Driver Premium: $391.87
+  Premium Difference: $433.13
+  Percentage Difference: 110.5300%
+  Applied Discounts: [Safe Driver Discount - 15%, Multi-Policy Discount - 10%]
+  ✓ Discount transparency provided
+  ✓ Rate calculation differences justified by risk factors
+]]></system-out>
+  </testcase>
+  <testcase name="should_EnsureFinancialDataAccuracyAndPrecision" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.003">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@4d759b3b]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: 3e78dd84-7bf6-4465-91f4-13e97db88abc, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: 3e78dd84-7bf6-4465-91f4-13e97db88abc and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@3acac505]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Financial Data Accuracy Check:
+  Premium: $444.12
+  Monthly Premium: $37.01
+  Coverage Amount: $100000.00
+  Deductible: $1000.00
+  ✓ Premium precision compliant (2 decimal places)
+  ✓ Monthly premium calculation accurate
+  ✓ Coverage and deductible values preserved exactly
+]]></system-out>
+  </testcase>
+  <testcase name="should_GenerateProperAuditTrailsForQuoteGeneration" classname="com.autoinsurance.compliance.ComplianceAndAuditTest" time="0.004">
+    <system-out><![CDATA[2025-08-14 22:47:46 - Securing POST /api/v1/quotes
+2025-08-14 22:47:46 - Secured POST /api/v1/quotes
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#createQuote(QuoteRequestDto)
+2025-08-14 22:47:46 - Read "application/json;charset=UTF-8" to [com.autoinsurance.quote.dto.QuoteRequestDto@3696c204]
+2025-08-14 22:47:46 - Creating new quote request
+2025-08-14 22:47:46 - Starting quote generation process
+2025-08-14 22:47:46 - Starting validation for quote request
+2025-08-14 22:47:46 - Vehicle validation completed for VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Driver validation completed for: John Doe
+2025-08-14 22:47:46 - Quote request validation completed successfully
+2025-08-14 22:47:46 - Quote validation successful for vehicle VIN: 1HGFC2F53JA123456 and primary driver: John Doe
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Calculating discounts for quote request
+2025-08-14 22:47:46 - Calculating base premium for coverage amount: 100000.00
+2025-08-14 22:47:46 - Applied safe driver discount for driver: John
+2025-08-14 22:47:46 - Total discount applied: 15.00% ($78.3750) for quote
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quotes
+        (coverage_amount, created_at, deductible, monthly_premium, premium, primary_driver_license, primary_driver_name, valid_until, vehicle_current_value, vehicle_make, vehicle_model, vehicle_vin, vehicle_year, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2025-08-14 22:47:46 - 
+    insert 
+    into
+        quote_discounts
+        (quote_id, discount_description) 
+    values
+        (?, ?)
+2025-08-14 22:47:46 - Quote successfully generated with ID: bfa82c55-16c7-4719-8757-d402ca5efb85, premium: 444.12, VIN: 1HGFC2F53JA123456
+2025-08-14 22:47:46 - Quote created with ID: bfa82c55-16c7-4719-8757-d402ca5efb85 and premium: 444.12
+2025-08-14 22:47:46 - Using 'application/json', given [*/*] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@1b99fdf9]
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+2025-08-14 22:47:46 - Securing GET /api/v1/quotes/bfa82c55-16c7-4719-8757-d402ca5efb85
+2025-08-14 22:47:46 - Secured GET /api/v1/quotes/bfa82c55-16c7-4719-8757-d402ca5efb85
+2025-08-14 22:47:46 - Mapped to com.autoinsurance.quote.controller.QuoteController#getQuote(String)
+2025-08-14 22:47:46 - Retrieving quote with ID: bfa82c55-16c7-4719-8757-d402ca5efb85
+2025-08-14 22:47:46 - Retrieving quote with ID: bfa82c55-16c7-4719-8757-d402ca5efb85
+2025-08-14 22:47:46 - 
+    select
+        q1_0.id,
+        q1_0.coverage_amount,
+        q1_0.created_at,
+        q1_0.deductible,
+        q1_0.monthly_premium,
+        q1_0.premium,
+        q1_0.primary_driver_license,
+        q1_0.primary_driver_name,
+        q1_0.valid_until,
+        q1_0.vehicle_current_value,
+        q1_0.vehicle_make,
+        q1_0.vehicle_model,
+        q1_0.vehicle_vin,
+        q1_0.vehicle_year 
+    from
+        quotes q1_0 
+    where
+        q1_0.id=?
+2025-08-14 22:47:46 - Quote retrieved successfully for ID: bfa82c55-16c7-4719-8757-d402ca5efb85
+2025-08-14 22:47:46 - Using 'application/json', given [application/json] and supported [application/json]
+2025-08-14 22:47:46 - Writing [com.autoinsurance.quote.dto.QuoteResponseDto@6a02905e]
+2025-08-14 22:47:46 - 
+    select
+        da1_0.quote_id,
+        da1_0.discount_description 
+    from
+        quote_discounts da1_0 
+    where
+        da1_0.quote_id=?
+2025-08-14 22:47:46 - Set SecurityContextHolder to anonymous SecurityContext
+Audit Trail Compliance:
+  ✓ Quote generation event logged
+  ✓ Quote retrieval event logged
+  ✓ Quote ID trackable: bfa82c55-16c7-4719-8757-d402ca5efb85
+]]></system-out>
+  </testcase>
+</testsuite>
