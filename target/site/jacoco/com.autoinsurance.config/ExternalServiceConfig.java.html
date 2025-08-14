@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ExternalServiceConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.config</a> &gt; <span class="el_source">ExternalServiceConfig.java</span></div><h1>ExternalServiceConfig.java</h1><pre class="source lang-java linenums">package com.autoinsurance.config;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+/**
+ * External Service Configuration
+ * 
+ * Configures beans required for external service integration.
+ * Supports service virtualization via WireMock during testing.
+ * 
+ * Following TDD Red-Green-Blue cycle:
+ * RED: External service calls fail without proper configuration
+ * GREEN: RestTemplate and ObjectMapper provide service integration
+ * BLUE: Refactor configuration while maintaining service compatibility
+ */
+@Configuration
+<span class="fc" id="L22">public class ExternalServiceConfig {</span>
+
+    /**
+     * RestTemplate bean for external API calls
+     * 
+     * Configured for use with both real services and WireMock virtualization.
+     */
+    @Bean
+    public RestTemplate restTemplate() {
+<span class="fc" id="L31">        return new RestTemplate();</span>
+    }
+
+    /**
+     * ObjectMapper bean configured for external service DTOs
+     * 
+     * Includes JSR310 (Java Time) support for LocalDate serialization
+     * and consistent date formatting for external API compatibility.
+     */
+    @Bean
+    public ObjectMapper objectMapper() {
+<span class="fc" id="L42">        ObjectMapper mapper = new ObjectMapper();</span>
+        
+        // Add JSR310 module for LocalDate support
+<span class="fc" id="L45">        mapper.registerModule(new JavaTimeModule());</span>
+        
+        // Configure date serialization to strings instead of arrays
+<span class="fc" id="L48">        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);</span>
+        
+        // Additional configurations for external service compatibility
+<span class="fc" id="L51">        mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);</span>
+        
+<span class="fc" id="L53">        return mapper;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

@@ -1,6 +1,8 @@
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/common/exception/GlobalExceptionHandler.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/dto/CreditCheckRequest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/DiscountServiceImpl.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/PremiumCalculation.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/client/RiskAssessmentClient.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/QuoteEntityBuilder.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/AutoInsuranceApiApplication.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/config/OpenApiConfig.java
@@ -16,12 +18,17 @@
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/QuoteEntityBuilderInterface.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/validation/QuoteValidationServiceImpl.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/dto/QuoteResponseDto.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/dto/RiskAssessmentResponse.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/dto/RiskAssessmentRequest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/dto/VehicleDto.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/config/SecurityConfig.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/RiskCalculationServiceImpl.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/dto/QuoteRequestDto.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/repository/QuoteRepository.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/exception/InvalidQuoteRequestException.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/dto/CreditCheckResponse.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/DiscountService.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/config/ExternalServiceConfig.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/external/client/CreditCheckClient.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/config/SwaggerConfig.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/main/java/com/autoinsurance/quote/service/QuoteService.java

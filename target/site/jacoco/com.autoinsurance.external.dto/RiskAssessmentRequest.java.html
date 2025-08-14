@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RiskAssessmentRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.external.dto</a> &gt; <span class="el_source">RiskAssessmentRequest.java</span></div><h1>RiskAssessmentRequest.java</h1><pre class="source lang-java linenums">package com.autoinsurance.external.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigDecimal;
+
+/**
+ * Risk Assessment Service Request DTO
+ * 
+ * Represents the request structure for external risk assessment API calls.
+ * Based on Pact contract specifications.
+ */
+public class RiskAssessmentRequest {
+
+    @JsonProperty(&quot;driverAge&quot;)
+    private int driverAge;
+    
+    @JsonProperty(&quot;vehicleAge&quot;)
+    private int vehicleAge;
+    
+    @JsonProperty(&quot;yearsOfExperience&quot;)
+    private int yearsOfExperience;
+    
+    @JsonProperty(&quot;vehicleValue&quot;)
+    private BigDecimal vehicleValue;
+
+<span class="nc" id="L27">    public RiskAssessmentRequest() {}</span>
+
+<span class="nc" id="L29">    public RiskAssessmentRequest(int driverAge, int vehicleAge, int yearsOfExperience, BigDecimal vehicleValue) {</span>
+<span class="nc" id="L30">        this.driverAge = driverAge;</span>
+<span class="nc" id="L31">        this.vehicleAge = vehicleAge;</span>
+<span class="nc" id="L32">        this.yearsOfExperience = yearsOfExperience;</span>
+<span class="nc" id="L33">        this.vehicleValue = vehicleValue;</span>
+<span class="nc" id="L34">    }</span>
+
+    // Getters and setters
+<span class="nc" id="L37">    public int getDriverAge() { return driverAge; }</span>
+<span class="nc" id="L38">    public void setDriverAge(int driverAge) { this.driverAge = driverAge; }</span>
+
+<span class="nc" id="L40">    public int getVehicleAge() { return vehicleAge; }</span>
+<span class="nc" id="L41">    public void setVehicleAge(int vehicleAge) { this.vehicleAge = vehicleAge; }</span>
+
+<span class="nc" id="L43">    public int getYearsOfExperience() { return yearsOfExperience; }</span>
+<span class="nc" id="L44">    public void setYearsOfExperience(int yearsOfExperience) { this.yearsOfExperience = yearsOfExperience; }</span>
+
+<span class="nc" id="L46">    public BigDecimal getVehicleValue() { return vehicleValue; }</span>
+<span class="nc" id="L47">    public void setVehicleValue(BigDecimal vehicleValue) { this.vehicleValue = vehicleValue; }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

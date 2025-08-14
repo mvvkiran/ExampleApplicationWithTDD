@@ -33,11 +33,11 @@ public class QuoteServiceImpl implements QuoteService {
     private final QuoteValidationService validationService;
     private final QuoteEntityBuilderInterface quoteEntityBuilder;
     
-<span class="fc" id="L36">    public QuoteServiceImpl(QuoteRepository quoteRepository, </span>
+    public QuoteServiceImpl(QuoteRepository quoteRepository, 
                            RiskCalculationService riskCalculationService,
                            DiscountService discountService,
                            QuoteValidationService validationService,
-                           QuoteEntityBuilderInterface quoteEntityBuilder) {
+<span class="fc" id="L40">                           QuoteEntityBuilderInterface quoteEntityBuilder) {</span>
 <span class="fc" id="L41">        this.quoteRepository = quoteRepository;</span>
 <span class="fc" id="L42">        this.riskCalculationService = riskCalculationService;</span>
 <span class="fc" id="L43">        this.discountService = discountService;</span>
@@ -56,7 +56,7 @@ public class QuoteServiceImpl implements QuoteService {
 <span class="fc" id="L56">        String vin = request.getVehicle().getVin();</span>
 <span class="fc" id="L57">        String primaryDriverName = getPrimaryDriverName(request);</span>
 <span class="fc" id="L58">        log.debug(&quot;Quote validation successful for vehicle VIN: {} and primary driver: {}&quot;, </span>
-<span class="fc" id="L59">                 vin, primaryDriverName);</span>
+                 vin, primaryDriverName);
         
         try {
             // Calculate premium components

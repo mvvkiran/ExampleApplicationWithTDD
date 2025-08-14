@@ -38,7 +38,7 @@ public class DiscountServiceImpl implements DiscountService {
 <span class="fc" id="L38">                totalDiscountPercentage = totalDiscountPercentage.add(BigDecimal.valueOf(0.10)); // 10% discount</span>
 <span class="fc" id="L39">                log.debug(&quot;Applied multi-policy discount for driver: {}&quot;, driver.getFirstName());</span>
             }
-        }
+<span class="fc" id="L41">        }</span>
         
         // Cap total discount at 25%
 <span class="fc bfc" id="L44" title="All 2 branches covered.">        if (totalDiscountPercentage.compareTo(BigDecimal.valueOf(0.25)) &gt; 0) {</span>
@@ -65,7 +65,7 @@ public class DiscountServiceImpl implements DiscountService {
 <span class="fc bfc" id="L65" title="All 2 branches covered.">            if (Boolean.TRUE.equals(driver.getMultiPolicyDiscount())) {</span>
 <span class="fc" id="L66">                appliedDiscounts.add(&quot;Multi-Policy Discount - 10%&quot;);</span>
             }
-        }
+<span class="fc" id="L68">        }</span>
         
 <span class="fc" id="L70">        return appliedDiscounts;</span>
     }

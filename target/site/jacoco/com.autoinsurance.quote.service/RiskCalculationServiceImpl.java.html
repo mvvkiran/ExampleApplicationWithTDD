@@ -43,7 +43,7 @@ import java.time.Period;
         // Driver risk factors
 <span class="fc bfc" id="L44" title="All 2 branches covered.">        for (DriverDto driver : request.getDrivers()) {</span>
 <span class="fc" id="L45">            premium = applyDriverRiskFactors(premium, driver);</span>
-        }
+<span class="fc" id="L46">        }</span>
         
 <span class="fc" id="L48">        return premium.setScale(2, java.math.RoundingMode.HALF_UP);</span>
     }
@@ -57,7 +57,7 @@ import java.time.Period;
 <span class="fc" id="L57">            ageRiskFactor = BigDecimal.valueOf(1.5); // Higher risk for young drivers</span>
 <span class="fc bfc" id="L58" title="All 2 branches covered.">        } else if (age &lt; 65) {</span>
 <span class="fc" id="L59">            ageRiskFactor = BigDecimal.valueOf(1.0); // Standard risk</span>
-<span class="fc" id="L60">        } else {</span>
+        } else {
 <span class="fc" id="L61">            ageRiskFactor = BigDecimal.valueOf(1.2); // Slightly higher risk for older drivers</span>
         }
         

@@ -27,10 +27,10 @@ import org.springframework.context.annotation.Configuration;
     @Bean
     public CacheManager cacheManager() {
 <span class="fc" id="L29">        return new ConcurrentMapCacheManager(</span>
-<span class="fc" id="L30">                RISK_CALCULATION_CACHE,</span>
-<span class="fc" id="L31">                DISCOUNT_CALCULATION_CACHE,</span>
-<span class="fc" id="L32">                QUOTE_CACHE,</span>
-<span class="fc" id="L33">                VALIDATION_PATTERN_CACHE</span>
+                RISK_CALCULATION_CACHE,
+                DISCOUNT_CALCULATION_CACHE,
+                QUOTE_CACHE,
+                VALIDATION_PATTERN_CACHE
         );
     }
 
