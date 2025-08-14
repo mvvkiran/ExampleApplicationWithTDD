@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.autoinsurance.contract.consumer.RiskAssessmentServiceConsumerTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.284 s -- in com.autoinsurance.contract.consumer.RiskAssessmentServiceConsumerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.318 s -- in com.autoinsurance.contract.consumer.RiskAssessmentServiceConsumerTest

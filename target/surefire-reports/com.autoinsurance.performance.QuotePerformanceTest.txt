@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.autoinsurance.performance.QuotePerformanceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.511 s -- in com.autoinsurance.performance.QuotePerformanceTest

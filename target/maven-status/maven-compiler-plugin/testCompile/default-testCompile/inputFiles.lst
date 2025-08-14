@@ -20,6 +20,7 @@
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/PremiumCalculationTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/RiskCalculationServiceImplTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/config/QuoteValidationConfigTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/performance/QuotePerformanceTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/TestSecurityConfig.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/SecurityConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/wiremock/standalone/WireMockStandaloneServer.java
@@ -28,4 +29,5 @@
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/wiremock/WireMockTestUtilities.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/SwaggerConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteServiceImplAdditionalTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/performance/LoadSimulation.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/wiremock/stubs/RiskAssessmentStubs.java

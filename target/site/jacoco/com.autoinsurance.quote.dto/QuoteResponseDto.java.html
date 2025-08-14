@@ -70,7 +70,7 @@ public class QuoteResponseDto {
     )
     private LocalDate validUntil;
     
-<span class="pc" id="L73">    @Schema(</span>
+<span class="fc" id="L73">    @Schema(</span>
         description = &quot;List of discounts applied to the base premium&quot;,
         example = &quot;&quot;&quot;
             [
@@ -83,7 +83,7 @@ public class QuoteResponseDto {
     private List&lt;String&gt; discountsApplied = new ArrayList&lt;&gt;();
     
     // Constructors
-<span class="nc" id="L86">    public QuoteResponseDto() {}</span>
+<span class="fc" id="L86">    public QuoteResponseDto() {}</span>
     
     public QuoteResponseDto(String quoteId, BigDecimal premium, BigDecimal monthlyPremium, 
                            BigDecimal coverageAmount, BigDecimal deductible, LocalDate validUntil, 
@@ -104,27 +104,27 @@ public class QuoteResponseDto {
     
     // Getters and Setters
 <span class="fc" id="L106">    public String getQuoteId() { return quoteId; }</span>
-<span class="nc" id="L107">    public void setQuoteId(String quoteId) { this.quoteId = quoteId; }</span>
+<span class="fc" id="L107">    public void setQuoteId(String quoteId) { this.quoteId = quoteId; }</span>
     
 <span class="fc" id="L109">    public BigDecimal getPremium() { return premium; }</span>
-<span class="nc" id="L110">    public void setPremium(BigDecimal premium) { this.premium = premium; }</span>
+<span class="fc" id="L110">    public void setPremium(BigDecimal premium) { this.premium = premium; }</span>
     
 <span class="fc" id="L112">    public BigDecimal getMonthlyPremium() { return monthlyPremium; }</span>
-<span class="nc" id="L113">    public void setMonthlyPremium(BigDecimal monthlyPremium) { this.monthlyPremium = monthlyPremium; }</span>
+<span class="fc" id="L113">    public void setMonthlyPremium(BigDecimal monthlyPremium) { this.monthlyPremium = monthlyPremium; }</span>
     
 <span class="fc" id="L115">    public BigDecimal getCoverageAmount() { return coverageAmount; }</span>
-<span class="nc" id="L116">    public void setCoverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; }</span>
+<span class="fc" id="L116">    public void setCoverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; }</span>
     
 <span class="fc" id="L118">    public BigDecimal getDeductible() { return deductible; }</span>
-<span class="nc" id="L119">    public void setDeductible(BigDecimal deductible) { this.deductible = deductible; }</span>
+<span class="fc" id="L119">    public void setDeductible(BigDecimal deductible) { this.deductible = deductible; }</span>
     
 <span class="fc" id="L121">    public LocalDate getValidUntil() { return validUntil; }</span>
-<span class="nc" id="L122">    public void setValidUntil(LocalDate validUntil) { this.validUntil = validUntil; }</span>
+<span class="fc" id="L122">    public void setValidUntil(LocalDate validUntil) { this.validUntil = validUntil; }</span>
     
 <span class="fc" id="L124">    public List&lt;String&gt; getDiscountsApplied() { return discountsApplied; }</span>
     public void setDiscountsApplied(List&lt;String&gt; discountsApplied) { 
-<span class="nc bnc" id="L126" title="All 2 branches missed.">        this.discountsApplied = discountsApplied != null ? discountsApplied : new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L127">    }</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">        this.discountsApplied = discountsApplied != null ? discountsApplied : new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L127">    }</span>
     
 <span class="fc" id="L129">    public static class QuoteResponseDtoBuilder {</span>
         private String quoteId;
