@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SwaggerConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.config</a> &gt; <span class="el_source">SwaggerConfig.java</span></div><h1>SwaggerConfig.java</h1><pre class="source lang-java linenums">package com.autoinsurance.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
+import org.springdoc.core.models.GroupedOpenApi;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+import java.util.List;
+
+/**
+ * Swagger/OpenAPI Configuration for Auto Insurance API.
+ * This configuration ensures proper API documentation display in Swagger UI.
+ */
+@Configuration
+<span class="fc" id="L20">public class SwaggerConfig {</span>
+
+    @Bean
+    @Primary
+    public OpenAPI autoInsuranceAPI() {
+<span class="fc" id="L25">        return new OpenAPI()</span>
+<span class="fc" id="L26">                .info(new Info()</span>
+<span class="fc" id="L27">                        .title(&quot;Auto Insurance API&quot;)</span>
+<span class="fc" id="L28">                        .description(&quot;&quot;&quot;</span>
+                            **Comprehensive Auto Insurance Backend API built with Test Driven Development (TDD)**
+                            
+                            ## 🚗 Features
+                            - **Quote Management**: Generate, retrieve, and calculate insurance quotes
+                            - **Premium Calculations**: Advanced risk assessment with discount calculations
+                            - **Policy Management**: Complete policy lifecycle management (Coming Soon)
+                            - **Claims Processing**: Streamlined claims workflow (Coming Soon)
+                            - **Customer Management**: Profile and preference management (Coming Soon)
+                            
+                            ## 🔴🟢🔵 TDD Methodology
+                            This API follows strict Test Driven Development practices:
+                            - **🔴 Red Phase**: Write failing tests first
+                            - **🟢 Green Phase**: Implement minimum code to pass tests  
+                            - **🔵 Blue Phase**: Refactor for quality and performance
+                            
+                            ## 📊 Testing Coverage
+                            - **Unit Tests**: 80%+ coverage (23 tests)
+                            - **Integration Tests**: All endpoints covered (10 tests)
+                            - **Contract Tests**: External service agreements
+                            - **Performance Tests**: Load and stress testing
+                            
+                            ## ⚡ Performance Features
+                            - Spring Cache integration for frequently accessed data
+                            - Optimized entity building with performance-focused patterns
+                            - Comprehensive logging and monitoring
+                            
+                            ## 🔧 Interactive Testing
+                            Use the **&quot;Try it out&quot;** buttons below to test all endpoints directly from this interface!
+                            &quot;&quot;&quot;)
+<span class="fc" id="L58">                        .version(&quot;1.0.0&quot;)</span>
+<span class="fc" id="L59">                        .contact(new Contact()</span>
+<span class="fc" id="L60">                                .name(&quot;Auto Insurance API Team&quot;)</span>
+<span class="fc" id="L61">                                .email(&quot;api-team@autoinsurance.com&quot;)</span>
+<span class="fc" id="L62">                                .url(&quot;https://github.com/autoinsurance/api&quot;))</span>
+<span class="fc" id="L63">                        .license(new License()</span>
+<span class="fc" id="L64">                                .name(&quot;MIT License&quot;)</span>
+<span class="fc" id="L65">                                .url(&quot;https://opensource.org/licenses/MIT&quot;)))</span>
+<span class="fc" id="L66">                .servers(List.of(</span>
+                        new Server()
+<span class="fc" id="L68">                                .url(&quot;http://localhost:8080&quot;)</span>
+<span class="fc" id="L69">                                .description(&quot;🛠️ Development Server&quot;),</span>
+                        new Server()
+<span class="fc" id="L71">                                .url(&quot;https://api-staging.autoinsurance.com&quot;)</span>
+<span class="fc" id="L72">                                .description(&quot;🧪 Staging Server&quot;),</span>
+                        new Server()
+<span class="fc" id="L74">                                .url(&quot;https://api.autoinsurance.com&quot;)</span>
+<span class="fc" id="L75">                                .description(&quot;🚀 Production Server&quot;)</span>
+                ));
+    }
+
+    @Bean
+    public GroupedOpenApi quoteManagementApi() {
+<span class="fc" id="L81">        return GroupedOpenApi.builder()</span>
+<span class="fc" id="L82">                .group(&quot;quote-management&quot;)</span>
+<span class="fc" id="L83">                .displayName(&quot;Quote Management APIs&quot;)</span>
+<span class="fc" id="L84">                .pathsToMatch(&quot;/api/v1/quotes/**&quot;)</span>
+<span class="fc" id="L85">                .build();</span>
+    }
+    
+    @Bean
+    public GroupedOpenApi allApis() {
+<span class="fc" id="L90">        return GroupedOpenApi.builder()</span>
+<span class="fc" id="L91">                .group(&quot;all-apis&quot;)</span>
+<span class="fc" id="L92">                .displayName(&quot;All Auto Insurance APIs&quot;)</span>
+<span class="fc" id="L93">                .pathsToMatch(&quot;/api/**&quot;)</span>
+<span class="fc" id="L94">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

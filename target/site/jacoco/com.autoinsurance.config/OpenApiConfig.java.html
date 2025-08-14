@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OpenApiConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.config</a> &gt; <span class="el_source">OpenApiConfig.java</span></div><h1>OpenApiConfig.java</h1><pre class="source lang-java linenums">package com.autoinsurance.config;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.List;
+
+/**
+ * OpenAPI (Swagger) configuration for Auto Insurance API documentation.
+ * Provides comprehensive API documentation with security schemes and server configurations.
+ */
+@Configuration
+<span class="fc" id="L21">public class OpenApiConfig {</span>
+
+    @Bean
+    public OpenAPI autoInsuranceOpenAPI() {
+<span class="fc" id="L25">        return new OpenAPI()</span>
+<span class="fc" id="L26">                .info(createApiInfo())</span>
+<span class="fc" id="L27">                .servers(createServerList())</span>
+<span class="fc" id="L28">                .components(createComponents())</span>
+<span class="fc" id="L29">                .addSecurityItem(createSecurityRequirement());</span>
+    }
+
+    private Info createApiInfo() {
+<span class="fc" id="L33">        return new Info()</span>
+<span class="fc" id="L34">                .title(&quot;Auto Insurance API&quot;)</span>
+<span class="fc" id="L35">                .description(&quot;&quot;&quot;</span>
+                    Comprehensive Auto Insurance Backend API built with Test Driven Development (TDD).
+                    
+                    ## Features
+                    - **Quote Management**: Generate, retrieve, and calculate insurance quotes
+                    - **Premium Calculations**: Advanced risk assessment and discount calculations
+                    - **Policy Management**: Complete policy lifecycle management (Coming Soon)
+                    - **Claims Processing**: Streamlined claims workflow (Coming Soon)
+                    - **Customer Management**: Customer profile and preference management (Coming Soon)
+                    
+                    ## TDD Methodology
+                    This API is built following strict Test Driven Development practices:
+                    - **Red Phase**: Write failing tests first
+                    - **Green Phase**: Implement minimum code to pass tests
+                    - **Blue Phase**: Refactor for quality and performance
+                    
+                    ## Testing Coverage
+                    - Unit Tests: 80%+ coverage
+                    - Integration Tests: All endpoints covered
+                    - Contract Tests: External service agreements
+                    - Performance Tests: Load and stress testing
+                    
+                    ## Performance Features
+                    - Spring Cache integration for frequently accessed data
+                    - Optimized entity building with performance-focused patterns
+                    - Comprehensive logging and monitoring
+                    &quot;&quot;&quot;)
+<span class="fc" id="L62">                .version(&quot;1.0.0&quot;)</span>
+<span class="fc" id="L63">                .contact(createContact())</span>
+<span class="fc" id="L64">                .license(createLicense());</span>
+    }
+
+    private Contact createContact() {
+<span class="fc" id="L68">        return new Contact()</span>
+<span class="fc" id="L69">                .name(&quot;Auto Insurance API Team&quot;)</span>
+<span class="fc" id="L70">                .email(&quot;api-team@autoinsurance.com&quot;)</span>
+<span class="fc" id="L71">                .url(&quot;https://github.com/autoinsurance/api&quot;);</span>
+    }
+
+    private License createLicense() {
+<span class="fc" id="L75">        return new License()</span>
+<span class="fc" id="L76">                .name(&quot;MIT License&quot;)</span>
+<span class="fc" id="L77">                .url(&quot;https://opensource.org/licenses/MIT&quot;);</span>
+    }
+
+    private List&lt;Server&gt; createServerList() {
+<span class="fc" id="L81">        return List.of(</span>
+                new Server()
+<span class="fc" id="L83">                        .url(&quot;http://localhost:8080&quot;)</span>
+<span class="fc" id="L84">                        .description(&quot;Development Server&quot;),</span>
+                new Server()
+<span class="fc" id="L86">                        .url(&quot;https://api-staging.autoinsurance.com&quot;)</span>
+<span class="fc" id="L87">                        .description(&quot;Staging Server&quot;),</span>
+                new Server()
+<span class="fc" id="L89">                        .url(&quot;https://api.autoinsurance.com&quot;)</span>
+<span class="fc" id="L90">                        .description(&quot;Production Server&quot;)</span>
+        );
+    }
+
+    private Components createComponents() {
+<span class="fc" id="L95">        return new Components()</span>
+<span class="fc" id="L96">                .addSecuritySchemes(&quot;bearerAuth&quot;, createBearerAuthScheme())</span>
+<span class="fc" id="L97">                .addSecuritySchemes(&quot;apiKey&quot;, createApiKeyScheme());</span>
+    }
+
+    private SecurityScheme createBearerAuthScheme() {
+<span class="fc" id="L101">        return new SecurityScheme()</span>
+<span class="fc" id="L102">                .type(SecurityScheme.Type.HTTP)</span>
+<span class="fc" id="L103">                .scheme(&quot;bearer&quot;)</span>
+<span class="fc" id="L104">                .bearerFormat(&quot;JWT&quot;)</span>
+<span class="fc" id="L105">                .description(&quot;JWT Bearer token authentication&quot;);</span>
+    }
+
+    private SecurityScheme createApiKeyScheme() {
+<span class="fc" id="L109">        return new SecurityScheme()</span>
+<span class="fc" id="L110">                .type(SecurityScheme.Type.APIKEY)</span>
+<span class="fc" id="L111">                .in(SecurityScheme.In.HEADER)</span>
+<span class="fc" id="L112">                .name(&quot;X-API-Key&quot;)</span>
+<span class="fc" id="L113">                .description(&quot;API Key authentication for service-to-service calls&quot;);</span>
+    }
+
+    private SecurityRequirement createSecurityRequirement() {
+<span class="fc" id="L117">        return new SecurityRequirement()</span>
+<span class="fc" id="L118">                .addList(&quot;bearerAuth&quot;)</span>
+<span class="fc" id="L119">                .addList(&quot;apiKey&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

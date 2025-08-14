@@ -15,6 +15,7 @@ com/autoinsurance/AutoInsuranceApiApplication.class
 com/autoinsurance/quote/service/DiscountServiceImpl.class
 com/autoinsurance/quote/service/QuoteServiceImpl.class
 com/autoinsurance/quote/exception/QuoteNotFoundException.class
+com/autoinsurance/config/SwaggerConfig.class
 com/autoinsurance/quote/repository/QuoteRepository.class
 com/autoinsurance/quote/service/DiscountService.class
 com/autoinsurance/quote/dto/QuoteResponseDto$QuoteResponseDtoBuilder.class

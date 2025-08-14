@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteEntityBuilder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.service</a> &gt; <span class="el_source">QuoteEntityBuilder.java</span></div><h1>QuoteEntityBuilder.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.service;
+
+import com.autoinsurance.quote.dto.QuoteRequestDto;
+import com.autoinsurance.quote.entity.Quote;
+import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * Performance-optimized builder for Quote entities.
+ * Reduces object creation overhead and provides reusable quote building logic.
+ */
+@Component
+<span class="fc" id="L16">public class QuoteEntityBuilder implements QuoteEntityBuilderInterface {</span>
+
+    private static final int QUOTE_VALIDITY_DAYS = 30;
+
+    /**
+     * Builds a Quote entity from request and premium calculation with optimized performance.
+     * 
+     * @param request The quote request containing vehicle and driver information
+     * @param premiumCalc The calculated premium components
+     * @return A fully populated Quote entity
+     */
+    public Quote buildQuoteEntity(QuoteRequestDto request, PremiumCalculation premiumCalc) {
+        // Use StringBuilder for efficient string concatenation
+<span class="fc" id="L29">        StringBuilder primaryDriverNameBuilder = new StringBuilder();</span>
+<span class="fc" id="L30">        var primaryDriver = request.getDrivers().get(0);</span>
+<span class="fc" id="L31">        primaryDriverNameBuilder.append(primaryDriver.getFirstName())</span>
+<span class="fc" id="L32">                               .append(&quot; &quot;)</span>
+<span class="fc" id="L33">                               .append(primaryDriver.getLastName());</span>
+        
+<span class="fc" id="L35">        return Quote.builder()</span>
+<span class="fc" id="L36">                .id(UUID.randomUUID().toString())</span>
+<span class="fc" id="L37">                .premium(premiumCalc.getFinalPremium())</span>
+<span class="fc" id="L38">                .monthlyPremium(premiumCalc.getMonthlyPremium())</span>
+<span class="fc" id="L39">                .coverageAmount(request.getCoverageAmount())</span>
+<span class="fc" id="L40">                .deductible(request.getDeductible())</span>
+<span class="fc" id="L41">                .validUntil(LocalDate.now().plusDays(QUOTE_VALIDITY_DAYS))</span>
+<span class="fc" id="L42">                .vehicleMake(request.getVehicle().getMake())</span>
+<span class="fc" id="L43">                .vehicleModel(request.getVehicle().getModel())</span>
+<span class="fc" id="L44">                .vehicleYear(request.getVehicle().getYear())</span>
+<span class="fc" id="L45">                .vehicleVin(request.getVehicle().getVin())</span>
+<span class="fc" id="L46">                .vehicleCurrentValue(request.getVehicle().getCurrentValue())</span>
+<span class="fc" id="L47">                .primaryDriverName(primaryDriverNameBuilder.toString())</span>
+<span class="fc" id="L48">                .primaryDriverLicense(primaryDriver.getLicenseNumber())</span>
+<span class="fc" id="L49">                .discountsApplied(copyDiscountsList(premiumCalc.getAppliedDiscounts()))</span>
+<span class="fc" id="L50">                .build();</span>
+    }
+
+    /**
+     * Creates a defensive copy of the discounts list to prevent external modification.
+     * Uses ArrayList for better performance with small lists.
+     */
+    private List&lt;String&gt; copyDiscountsList(List&lt;String&gt; originalDiscounts) {
+<span class="pc bpc" id="L58" title="1 of 4 branches missed.">        if (originalDiscounts == null || originalDiscounts.isEmpty()) {</span>
+<span class="fc" id="L59">            return List.of(); // Immutable empty list</span>
+        }
+<span class="fc" id="L61">        return List.copyOf(originalDiscounts); // Immutable copy</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

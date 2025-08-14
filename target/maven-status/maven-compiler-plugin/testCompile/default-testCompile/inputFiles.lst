@@ -1,3 +1,17 @@
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/exception/QuoteExceptionTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteEntityBuilderTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/AutoInsuranceApiApplicationTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/OpenApiConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteServiceTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/controller/QuoteControllerTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/DiscountServiceImplTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/PremiumCalculationTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/RiskCalculationServiceImplTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/CacheConfigTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/config/QuoteValidationConfigTest.java
 /Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/TestSecurityConfig.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/SecurityConfigTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/validation/QuoteValidationServiceImplTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/entity/QuoteTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/config/SwaggerConfigTest.java
+/Users/mvvkiran/Workspace/ExampleApplicationWithTDD/src/test/java/com/autoinsurance/quote/service/QuoteServiceImplAdditionalTest.java

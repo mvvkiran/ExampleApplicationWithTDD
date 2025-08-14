@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteValidationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.service.validation</a> &gt; <span class="el_source">QuoteValidationServiceImpl.java</span></div><h1>QuoteValidationServiceImpl.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.service.validation;
+
+import com.autoinsurance.quote.config.QuoteValidationConfig;
+import com.autoinsurance.quote.dto.DriverDto;
+import com.autoinsurance.quote.dto.QuoteRequestDto;
+import com.autoinsurance.quote.dto.VehicleDto;
+import com.autoinsurance.quote.exception.InvalidQuoteRequestException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+/**
+ * Implementation of quote validation service.
+ * Handles validation of quote requests using configurable business rules.
+ */
+@Service
+public class QuoteValidationServiceImpl implements QuoteValidationService {
+    
+<span class="fc" id="L23">    private static final Logger log = LoggerFactory.getLogger(QuoteValidationServiceImpl.class);</span>
+    
+    private final QuoteValidationConfig validationConfig;
+    
+<span class="fc" id="L27">    public QuoteValidationServiceImpl(QuoteValidationConfig validationConfig) {</span>
+<span class="fc" id="L28">        this.validationConfig = validationConfig;</span>
+<span class="fc" id="L29">    }</span>
+    
+    @Override
+    public void validateQuoteRequest(QuoteRequestDto request) {
+<span class="fc" id="L33">        log.debug(&quot;Starting validation for quote request&quot;);</span>
+        
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (request == null) {</span>
+<span class="fc" id="L36">            throw new InvalidQuoteRequestException(&quot;Quote request cannot be null&quot;);</span>
+        }
+        
+<span class="fc" id="L39">        validateVehiclePresence(request);</span>
+<span class="fc" id="L40">        validateDriversPresence(request);</span>
+<span class="fc" id="L41">        validateCoverageInformation(request);</span>
+        
+        // Validate individual components
+<span class="fc" id="L44">        validateVehicle(request.getVehicle());</span>
+        
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        for (DriverDto driver : request.getDrivers()) {</span>
+<span class="fc" id="L47">            validateDriver(driver);</span>
+<span class="fc" id="L48">        }</span>
+        
+<span class="fc" id="L50">        log.debug(&quot;Quote request validation completed successfully&quot;);</span>
+<span class="fc" id="L51">    }</span>
+    
+    @Override
+    public void validateVehicle(VehicleDto vehicle) {
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (vehicle == null) {</span>
+<span class="fc" id="L56">            throw new InvalidQuoteRequestException(&quot;Vehicle information is required&quot;);</span>
+        }
+        
+<span class="fc" id="L59">        validateVin(vehicle.getVin());</span>
+<span class="fc" id="L60">        validateVehicleAge(vehicle.getYear());</span>
+<span class="fc" id="L61">        validateVehicleBasicInfo(vehicle);</span>
+        
+<span class="fc" id="L63">        log.debug(&quot;Vehicle validation completed for VIN: {}&quot;, vehicle.getVin());</span>
+<span class="fc" id="L64">    }</span>
+    
+    @Override
+    public void validateDriver(DriverDto driver) {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (driver == null) {</span>
+<span class="fc" id="L69">            throw new InvalidQuoteRequestException(&quot;Driver information cannot be null&quot;);</span>
+        }
+        
+<span class="fc" id="L72">        validateDriverBasicInfo(driver);</span>
+<span class="fc" id="L73">        validateDriverAge(driver);</span>
+<span class="fc" id="L74">        validateDriverLicense(driver);</span>
+        
+<span class="fc" id="L76">        log.debug(&quot;Driver validation completed for: {} {}&quot;, </span>
+<span class="fc" id="L77">                 driver.getFirstName(), driver.getLastName());</span>
+<span class="fc" id="L78">    }</span>
+    
+    private void validateVehiclePresence(QuoteRequestDto request) {
+<span class="fc bfc" id="L81" title="All 2 branches covered.">        if (request.getVehicle() == null) {</span>
+<span class="fc" id="L82">            throw new InvalidQuoteRequestException(&quot;Vehicle information is required&quot;);</span>
+        }
+<span class="fc" id="L84">    }</span>
+    
+    private void validateDriversPresence(QuoteRequestDto request) {
+<span class="fc bfc" id="L87" title="All 4 branches covered.">        if (request.getDrivers() == null || request.getDrivers().isEmpty()) {</span>
+<span class="fc" id="L88">            throw new InvalidQuoteRequestException(&quot;At least one driver is required&quot;);</span>
+        }
+<span class="fc" id="L90">    }</span>
+    
+    private void validateCoverageInformation(QuoteRequestDto request) {
+<span class="fc bfc" id="L93" title="All 4 branches covered.">        if (request.getCoverageAmount() == null || request.getCoverageAmount().signum() &lt;= 0) {</span>
+<span class="fc" id="L94">            throw new InvalidQuoteRequestException(&quot;Valid coverage amount is required&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L97" title="All 4 branches covered.">        if (request.getDeductible() == null || request.getDeductible().signum() &lt; 0) {</span>
+<span class="fc" id="L98">            throw new InvalidQuoteRequestException(&quot;Valid deductible amount is required&quot;);</span>
+        }
+<span class="fc" id="L100">    }</span>
+    
+    private void validateVin(String vin) {
+<span class="fc bfc" id="L103" title="All 4 branches covered.">        if (vin == null || vin.trim().isEmpty()) {</span>
+<span class="fc" id="L104">            throw new InvalidQuoteRequestException(&quot;VIN is required&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        if (!validationConfig.getCompiledVinPattern().matcher(vin).matches()) {</span>
+<span class="fc" id="L108">            throw new InvalidQuoteRequestException(</span>
+<span class="fc" id="L109">                String.format(&quot;Invalid VIN format: %s. Expected format: %s&quot;, </span>
+<span class="fc" id="L110">                             vin, validationConfig.getVinPattern())</span>
+            );
+        }
+<span class="fc" id="L113">    }</span>
+    
+    private void validateVehicleAge(Integer year) {
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if (year == null) {</span>
+<span class="fc" id="L117">            throw new InvalidQuoteRequestException(&quot;Vehicle year is required&quot;);</span>
+        }
+        
+<span class="fc" id="L120">        int currentYear = LocalDate.now().getYear();</span>
+<span class="fc" id="L121">        int vehicleAge = currentYear - year;</span>
+        
+<span class="fc bfc" id="L123" title="All 2 branches covered.">        if (vehicleAge &lt; 0) {</span>
+<span class="fc" id="L124">            throw new InvalidQuoteRequestException(&quot;Vehicle year cannot be in the future&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        if (vehicleAge &gt; validationConfig.getMaxVehicleAge()) {</span>
+<span class="fc" id="L128">            throw new InvalidQuoteRequestException(</span>
+<span class="fc" id="L129">                String.format(&quot;Vehicle age exceeds maximum limit of %d years. Vehicle age: %d years&quot;, </span>
+<span class="fc" id="L130">                             validationConfig.getMaxVehicleAge(), vehicleAge)</span>
+            );
+        }
+<span class="fc" id="L133">    }</span>
+    
+    private void validateVehicleBasicInfo(VehicleDto vehicle) {
+<span class="pc bpc" id="L136" title="1 of 4 branches missed.">        if (vehicle.getMake() == null || vehicle.getMake().trim().isEmpty()) {</span>
+<span class="fc" id="L137">            throw new InvalidQuoteRequestException(&quot;Vehicle make is required&quot;);</span>
+        }
+        
+<span class="pc bpc" id="L140" title="1 of 4 branches missed.">        if (vehicle.getModel() == null || vehicle.getModel().trim().isEmpty()) {</span>
+<span class="fc" id="L141">            throw new InvalidQuoteRequestException(&quot;Vehicle model is required&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L144" title="All 4 branches covered.">        if (vehicle.getCurrentValue() == null || vehicle.getCurrentValue().signum() &lt;= 0) {</span>
+<span class="fc" id="L145">            throw new InvalidQuoteRequestException(&quot;Valid vehicle current value is required&quot;);</span>
+        }
+<span class="fc" id="L147">    }</span>
+    
+    private void validateDriverBasicInfo(DriverDto driver) {
+<span class="pc bpc" id="L150" title="1 of 4 branches missed.">        if (driver.getFirstName() == null || driver.getFirstName().trim().isEmpty()) {</span>
+<span class="fc" id="L151">            throw new InvalidQuoteRequestException(&quot;Driver first name is required&quot;);</span>
+        }
+        
+<span class="pc bpc" id="L154" title="1 of 4 branches missed.">        if (driver.getLastName() == null || driver.getLastName().trim().isEmpty()) {</span>
+<span class="fc" id="L155">            throw new InvalidQuoteRequestException(&quot;Driver last name is required&quot;);</span>
+        }
+        
+<span class="fc bfc" id="L158" title="All 2 branches covered.">        if (driver.getDateOfBirth() == null) {</span>
+<span class="fc" id="L159">            throw new InvalidQuoteRequestException(&quot;Driver date of birth is required&quot;);</span>
+        }
+<span class="fc" id="L161">    }</span>
+    
+    private void validateDriverAge(DriverDto driver) {
+<span class="fc" id="L164">        int age = calculateAge(driver.getDateOfBirth());</span>
+        
+<span class="fc bfc" id="L166" title="All 2 branches covered.">        if (age &lt; validationConfig.getMinDriverAge()) {</span>
+<span class="fc" id="L167">            throw new InvalidQuoteRequestException(</span>
+<span class="fc" id="L168">                String.format(&quot;Driver must be at least %d years old. Current age: %d years&quot;, </span>
+<span class="fc" id="L169">                             validationConfig.getMinDriverAge(), age)</span>
+            );
+        }
+        
+<span class="fc bfc" id="L173" title="All 2 branches covered.">        if (age &gt; validationConfig.getMaxDriverAge()) {</span>
+<span class="fc" id="L174">            throw new InvalidQuoteRequestException(</span>
+<span class="fc" id="L175">                String.format(&quot;Driver age exceeds maximum limit of %d years. Current age: %d years&quot;, </span>
+<span class="fc" id="L176">                             validationConfig.getMaxDriverAge(), age)</span>
+            );
+        }
+<span class="fc" id="L179">    }</span>
+    
+    private void validateDriverLicense(DriverDto driver) {
+<span class="pc bpc" id="L182" title="1 of 4 branches missed.">        if (driver.getLicenseNumber() == null || driver.getLicenseNumber().trim().isEmpty()) {</span>
+<span class="fc" id="L183">            throw new InvalidQuoteRequestException(&quot;Driver license number is required&quot;);</span>
+        }
+        
+<span class="pc bpc" id="L186" title="1 of 4 branches missed.">        if (driver.getLicenseState() == null || driver.getLicenseState().trim().isEmpty()) {</span>
+<span class="fc" id="L187">            throw new InvalidQuoteRequestException(&quot;Driver license state is required&quot;);</span>
+        }
+<span class="fc" id="L189">    }</span>
+    
+    @Cacheable(value = &quot;validationPatternCache&quot;, key = &quot;#birthDate.toString() + '-' + T(java.time.LocalDate).now().getYear()&quot;)
+    private int calculateAge(LocalDate birthDate) {
+<span class="fc" id="L193">        return Period.between(birthDate, LocalDate.now()).getYears();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

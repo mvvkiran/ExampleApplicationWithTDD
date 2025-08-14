@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteResponseDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.dto</a> &gt; <span class="el_source">QuoteResponseDto.java</span></div><h1>QuoteResponseDto.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+@Schema(
+    name = &quot;QuoteResponse&quot;,
+    description = &quot;Response object containing generated quote details with premium calculations, coverage information, and applied discounts.&quot;,
+    example = &quot;&quot;&quot;
+        {
+            &quot;quoteId&quot;: &quot;q-12345678-abcd-4567-89ef-123456789012&quot;,
+            &quot;premium&quot;: 1200.00,
+            &quot;monthlyPremium&quot;: 100.00,
+            &quot;coverageAmount&quot;: 250000.00,
+            &quot;deductible&quot;: 1000.00,
+            &quot;validUntil&quot;: &quot;2024-09-15&quot;,
+            &quot;discountsApplied&quot;: [
+                &quot;Safe Driver Discount - 15%&quot;,
+                &quot;Multi-Policy Discount - 10%&quot;
+            ]
+        }
+        &quot;&quot;&quot;
+)
+public class QuoteResponseDto {
+    
+    @Schema(
+        description = &quot;Unique identifier for the generated quote&quot;,
+        example = &quot;q-12345678-abcd-4567-89ef-123456789012&quot;,
+        pattern = &quot;^q-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$&quot;
+    )
+    private String quoteId;
+    
+    @Schema(
+        description = &quot;Annual premium amount in USD&quot;,
+        example = &quot;1200.00&quot;,
+        minimum = &quot;0&quot;
+    )
+    private BigDecimal premium;
+    
+    @Schema(
+        description = &quot;Monthly premium amount in USD (annual premium divided by 12)&quot;,
+        example = &quot;100.00&quot;,
+        minimum = &quot;0&quot;
+    )
+    private BigDecimal monthlyPremium;
+    
+    @Schema(
+        description = &quot;Total coverage amount in USD&quot;,
+        example = &quot;250000.00&quot;,
+        minimum = &quot;25000&quot;,
+        maximum = &quot;1000000&quot;
+    )
+    private BigDecimal coverageAmount;
+    
+    @Schema(
+        description = &quot;Deductible amount in USD&quot;,
+        example = &quot;1000.00&quot;,
+        minimum = &quot;250&quot;,
+        maximum = &quot;10000&quot;
+    )
+    private BigDecimal deductible;
+    
+    @Schema(
+        description = &quot;Date until which this quote is valid (30 days from generation)&quot;,
+        example = &quot;2024-09-15&quot;,
+        pattern = &quot;YYYY-MM-DD&quot;
+    )
+    private LocalDate validUntil;
+    
+<span class="pc" id="L73">    @Schema(</span>
+        description = &quot;List of discounts applied to the base premium&quot;,
+        example = &quot;&quot;&quot;
+            [
+                &quot;Safe Driver Discount - 15%&quot;,
+                &quot;Multi-Policy Discount - 10%&quot;,
+                &quot;Good Student Discount - 5%&quot;
+            ]
+            &quot;&quot;&quot;
+    )
+    private List&lt;String&gt; discountsApplied = new ArrayList&lt;&gt;();
+    
+    // Constructors
+<span class="nc" id="L86">    public QuoteResponseDto() {}</span>
+    
+    public QuoteResponseDto(String quoteId, BigDecimal premium, BigDecimal monthlyPremium, 
+                           BigDecimal coverageAmount, BigDecimal deductible, LocalDate validUntil, 
+<span class="fc" id="L90">                           List&lt;String&gt; discountsApplied) {</span>
+<span class="fc" id="L91">        this.quoteId = quoteId;</span>
+<span class="fc" id="L92">        this.premium = premium;</span>
+<span class="fc" id="L93">        this.monthlyPremium = monthlyPremium;</span>
+<span class="fc" id="L94">        this.coverageAmount = coverageAmount;</span>
+<span class="fc" id="L95">        this.deductible = deductible;</span>
+<span class="fc" id="L96">        this.validUntil = validUntil;</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">        this.discountsApplied = discountsApplied != null ? discountsApplied : new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L98">    }</span>
+    
+    // Builder
+    public static QuoteResponseDtoBuilder builder() {
+<span class="fc" id="L102">        return new QuoteResponseDtoBuilder();</span>
+    }
+    
+    // Getters and Setters
+<span class="fc" id="L106">    public String getQuoteId() { return quoteId; }</span>
+<span class="nc" id="L107">    public void setQuoteId(String quoteId) { this.quoteId = quoteId; }</span>
+    
+<span class="fc" id="L109">    public BigDecimal getPremium() { return premium; }</span>
+<span class="nc" id="L110">    public void setPremium(BigDecimal premium) { this.premium = premium; }</span>
+    
+<span class="fc" id="L112">    public BigDecimal getMonthlyPremium() { return monthlyPremium; }</span>
+<span class="nc" id="L113">    public void setMonthlyPremium(BigDecimal monthlyPremium) { this.monthlyPremium = monthlyPremium; }</span>
+    
+<span class="fc" id="L115">    public BigDecimal getCoverageAmount() { return coverageAmount; }</span>
+<span class="nc" id="L116">    public void setCoverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; }</span>
+    
+<span class="fc" id="L118">    public BigDecimal getDeductible() { return deductible; }</span>
+<span class="nc" id="L119">    public void setDeductible(BigDecimal deductible) { this.deductible = deductible; }</span>
+    
+<span class="fc" id="L121">    public LocalDate getValidUntil() { return validUntil; }</span>
+<span class="nc" id="L122">    public void setValidUntil(LocalDate validUntil) { this.validUntil = validUntil; }</span>
+    
+<span class="fc" id="L124">    public List&lt;String&gt; getDiscountsApplied() { return discountsApplied; }</span>
+    public void setDiscountsApplied(List&lt;String&gt; discountsApplied) { 
+<span class="nc bnc" id="L126" title="All 2 branches missed.">        this.discountsApplied = discountsApplied != null ? discountsApplied : new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L127">    }</span>
+    
+<span class="fc" id="L129">    public static class QuoteResponseDtoBuilder {</span>
+        private String quoteId;
+        private BigDecimal premium;
+        private BigDecimal monthlyPremium;
+        private BigDecimal coverageAmount;
+        private BigDecimal deductible;
+        private LocalDate validUntil;
+<span class="fc" id="L136">        private List&lt;String&gt; discountsApplied = new ArrayList&lt;&gt;();</span>
+        
+<span class="fc" id="L138">        public QuoteResponseDtoBuilder quoteId(String quoteId) { this.quoteId = quoteId; return this; }</span>
+<span class="fc" id="L139">        public QuoteResponseDtoBuilder premium(BigDecimal premium) { this.premium = premium; return this; }</span>
+<span class="fc" id="L140">        public QuoteResponseDtoBuilder monthlyPremium(BigDecimal monthlyPremium) { this.monthlyPremium = monthlyPremium; return this; }</span>
+<span class="fc" id="L141">        public QuoteResponseDtoBuilder coverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; return this; }</span>
+<span class="fc" id="L142">        public QuoteResponseDtoBuilder deductible(BigDecimal deductible) { this.deductible = deductible; return this; }</span>
+<span class="fc" id="L143">        public QuoteResponseDtoBuilder validUntil(LocalDate validUntil) { this.validUntil = validUntil; return this; }</span>
+<span class="fc" id="L144">        public QuoteResponseDtoBuilder discountsApplied(List&lt;String&gt; discountsApplied) { this.discountsApplied = discountsApplied; return this; }</span>
+        
+        public QuoteResponseDto build() {
+<span class="fc" id="L147">            return new QuoteResponseDto(quoteId, premium, monthlyPremium, coverageAmount, </span>
+                                      deductible, validUntil, discountsApplied);
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

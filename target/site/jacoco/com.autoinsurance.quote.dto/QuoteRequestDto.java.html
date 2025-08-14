@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteRequestDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.dto</a> &gt; <span class="el_source">QuoteRequestDto.java</span></div><h1>QuoteRequestDto.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
+import java.math.BigDecimal;
+import java.util.List;
+
+@Schema(
+    name = &quot;QuoteRequest&quot;,
+    description = &quot;Request object for generating auto insurance quotes. Contains vehicle information, driver profiles, and coverage requirements.&quot;,
+    example = &quot;&quot;&quot;
+        {
+            &quot;vehicle&quot;: {
+                &quot;make&quot;: &quot;Honda&quot;,
+                &quot;model&quot;: &quot;Accord&quot;,
+                &quot;year&quot;: 2021,
+                &quot;vin&quot;: &quot;1HGCV1F31JA123456&quot;,
+                &quot;currentValue&quot;: 30000.00
+            },
+            &quot;drivers&quot;: [
+                {
+                    &quot;firstName&quot;: &quot;Jane&quot;,
+                    &quot;lastName&quot;: &quot;Smith&quot;,
+                    &quot;dateOfBirth&quot;: &quot;1990-03-20&quot;,
+                    &quot;licenseNumber&quot;: &quot;S987654321&quot;,
+                    &quot;licenseState&quot;: &quot;NY&quot;,
+                    &quot;yearsOfExperience&quot;: 10,
+                    &quot;safeDriverDiscount&quot;: true,
+                    &quot;multiPolicyDiscount&quot;: true
+                }
+            ],
+            &quot;coverageAmount&quot;: 150000.00,
+            &quot;deductible&quot;: 1000.00
+        }
+        &quot;&quot;&quot;
+)
+public class QuoteRequestDto {
+    
+    @Schema(
+        description = &quot;Vehicle information including make, model, year, VIN, and current market value&quot;,
+        required = true,
+        implementation = VehicleDto.class
+    )
+    @NotNull(message = &quot;Vehicle information is required&quot;)
+    @Valid
+    private VehicleDto vehicle;
+    
+    @Schema(
+        description = &quot;List of drivers to be covered under the policy. At least one primary driver is required (maximum 4 drivers).&quot;,
+        required = true,
+        example = &quot;&quot;&quot;
+            [
+                {
+                    &quot;firstName&quot;: &quot;John&quot;,
+                    &quot;lastName&quot;: &quot;Doe&quot;,
+                    &quot;dateOfBirth&quot;: &quot;1985-06-15&quot;,
+                    &quot;licenseNumber&quot;: &quot;D123456789&quot;,
+                    &quot;licenseState&quot;: &quot;CA&quot;,
+                    &quot;yearsOfExperience&quot;: 12
+                }
+            ]
+            &quot;&quot;&quot;
+    )
+    @NotEmpty(message = &quot;At least one driver is required&quot;)
+    @Valid
+    private List&lt;DriverDto&gt; drivers;
+    
+    @Schema(
+        description = &quot;Total coverage amount in USD. This represents the maximum payout for covered damages.&quot;,
+        required = true,
+        minimum = &quot;25000&quot;,
+        maximum = &quot;1000000&quot;,
+        example = &quot;250000.00&quot;
+    )
+    @NotNull(message = &quot;Coverage amount is required&quot;)
+    @DecimalMin(value = &quot;25000&quot;, message = &quot;Coverage amount must be at least $25,000&quot;)
+    @DecimalMax(value = &quot;1000000&quot;, message = &quot;Coverage amount cannot exceed $1,000,000&quot;)
+    private BigDecimal coverageAmount;
+    
+    @Schema(
+        description = &quot;Deductible amount in USD. The amount you pay out-of-pocket before insurance coverage begins.&quot;,
+        required = true,
+        minimum = &quot;250&quot;,
+        maximum = &quot;10000&quot;,
+        example = &quot;1000.00&quot;
+    )
+    @NotNull(message = &quot;Deductible is required&quot;)
+    @DecimalMin(value = &quot;250&quot;, message = &quot;Deductible must be at least $250&quot;)
+    @DecimalMax(value = &quot;10000&quot;, message = &quot;Deductible cannot exceed $10,000&quot;)
+    private BigDecimal deductible;
+    
+    // Constructors
+<span class="fc" id="L94">    public QuoteRequestDto() {}</span>
+    
+<span class="fc" id="L96">    public QuoteRequestDto(VehicleDto vehicle, List&lt;DriverDto&gt; drivers, BigDecimal coverageAmount, BigDecimal deductible) {</span>
+<span class="fc" id="L97">        this.vehicle = vehicle;</span>
+<span class="fc" id="L98">        this.drivers = drivers;</span>
+<span class="fc" id="L99">        this.coverageAmount = coverageAmount;</span>
+<span class="fc" id="L100">        this.deductible = deductible;</span>
+<span class="fc" id="L101">    }</span>
+    
+    // Builder
+    public static QuoteRequestDtoBuilder builder() {
+<span class="fc" id="L105">        return new QuoteRequestDtoBuilder();</span>
+    }
+    
+    // Getters and Setters
+<span class="fc" id="L109">    public VehicleDto getVehicle() { return vehicle; }</span>
+<span class="fc" id="L110">    public void setVehicle(VehicleDto vehicle) { this.vehicle = vehicle; }</span>
+    
+<span class="fc" id="L112">    public List&lt;DriverDto&gt; getDrivers() { return drivers; }</span>
+<span class="fc" id="L113">    public void setDrivers(List&lt;DriverDto&gt; drivers) { this.drivers = drivers; }</span>
+    
+<span class="fc" id="L115">    public BigDecimal getCoverageAmount() { return coverageAmount; }</span>
+<span class="fc" id="L116">    public void setCoverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; }</span>
+    
+<span class="fc" id="L118">    public BigDecimal getDeductible() { return deductible; }</span>
+<span class="fc" id="L119">    public void setDeductible(BigDecimal deductible) { this.deductible = deductible; }</span>
+    
+<span class="fc" id="L121">    public static class QuoteRequestDtoBuilder {</span>
+        private VehicleDto vehicle;
+        private List&lt;DriverDto&gt; drivers;
+        private BigDecimal coverageAmount;
+        private BigDecimal deductible;
+        
+<span class="fc" id="L127">        public QuoteRequestDtoBuilder vehicle(VehicleDto vehicle) { this.vehicle = vehicle; return this; }</span>
+<span class="fc" id="L128">        public QuoteRequestDtoBuilder drivers(List&lt;DriverDto&gt; drivers) { this.drivers = drivers; return this; }</span>
+<span class="fc" id="L129">        public QuoteRequestDtoBuilder coverageAmount(BigDecimal coverageAmount) { this.coverageAmount = coverageAmount; return this; }</span>
+<span class="fc" id="L130">        public QuoteRequestDtoBuilder deductible(BigDecimal deductible) { this.deductible = deductible; return this; }</span>
+        
+        public QuoteRequestDto build() {
+<span class="fc" id="L133">            return new QuoteRequestDto(vehicle, drivers, coverageAmount, deductible);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

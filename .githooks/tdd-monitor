@@ -31,13 +31,21 @@ analyze_commit_patterns() {
     
     SINCE_DATE=$(date -d "$MONITORING_DAYS days ago" '+%Y-%m-%d' 2>/dev/null || date -v-${MONITORING_DAYS}d '+%Y-%m-%d')
     
-    # Count commits by TDD phase
-    RED_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -ciE "(test|red|failing):" || echo "0")
-    GREEN_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -ciE "(feat|implement|green|pass):" || echo "0")
-    BLUE_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -ciE "(refactor|blue|cleanup|optimize):" || echo "0")
-    OTHER_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -ciEvE "(test|red|failing|feat|implement|green|pass|refactor|blue|cleanup|optimize):" || echo "0")
+    # Count commits by TDD phase - ensure single values
+    RED_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -cE "(test|red|failing):" 2>/dev/null | head -1 || echo "0")
+    GREEN_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -cE "(feat|implement|green|pass):" 2>/dev/null | head -1 || echo "0")
+    BLUE_COMMITS=$(git log --since="$SINCE_DATE" --oneline | grep -cE "(refactor|blue|cleanup|optimize):" 2>/dev/null | head -1 || echo "0")
     
-    TOTAL_COMMITS=$((RED_COMMITS + GREEN_COMMITS + BLUE_COMMITS + OTHER_COMMITS))
+    # Remove any whitespace/newlines from values
+    RED_COMMITS=$(echo "$RED_COMMITS" | tr -d '[:space:]')
+    GREEN_COMMITS=$(echo "$GREEN_COMMITS" | tr -d '[:space:]')
+    BLUE_COMMITS=$(echo "$BLUE_COMMITS" | tr -d '[:space:]')
+    
+    # Count total commits and subtract TDD commits to get other commits
+    TOTAL_COMMITS_TEMP=$(git log --since="$SINCE_DATE" --oneline | wc -l | tr -d '[:space:]')
+    OTHER_COMMITS=$(( ${TOTAL_COMMITS_TEMP:-0} - ${RED_COMMITS:-0} - ${GREEN_COMMITS:-0} - ${BLUE_COMMITS:-0} ))
+    
+    TOTAL_COMMITS=$(( ${RED_COMMITS:-0} + ${GREEN_COMMITS:-0} + ${BLUE_COMMITS:-0} + ${OTHER_COMMITS:-0} ))
     
     if [ $TOTAL_COMMITS -eq 0 ]; then
         echo -e "${YELLOW}No commits found in the last $MONITORING_DAYS days${NC}"
@@ -88,18 +96,18 @@ check_current_coverage() {
         COVERAGE_XML="target/site/jacoco/jacoco.xml"
         
         if [ -f "$COVERAGE_XML" ]; then
-            # Parse coverage data
-            INSTRUCTION_COVERED=$(grep 'type="INSTRUCTION"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*')
-            INSTRUCTION_MISSED=$(grep 'type="INSTRUCTION"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*')
+            # Parse coverage data - sum up all values to handle multiple packages
+            INSTRUCTION_COVERED=$(grep 'type="INSTRUCTION"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
+            INSTRUCTION_MISSED=$(grep 'type="INSTRUCTION"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
             
-            BRANCH_COVERED=$(grep 'type="BRANCH"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*')
-            BRANCH_MISSED=$(grep 'type="BRANCH"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*')
+            BRANCH_COVERED=$(grep 'type="BRANCH"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
+            BRANCH_MISSED=$(grep 'type="BRANCH"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
             
-            LINE_COVERED=$(grep 'type="LINE"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*')
-            LINE_MISSED=$(grep 'type="LINE"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*')
+            LINE_COVERED=$(grep 'type="LINE"' "$COVERAGE_XML" | grep -o 'covered="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
+            LINE_MISSED=$(grep 'type="LINE"' "$COVERAGE_XML" | grep -o 'missed="[0-9]*"' | grep -o '[0-9]*' | awk '{sum += $1} END {print sum+0}')
             
             if [ -n "$LINE_COVERED" ] && [ -n "$LINE_MISSED" ]; then
-                TOTAL_LINES=$((LINE_COVERED + LINE_MISSED))
+                TOTAL_LINES=$(( ${LINE_COVERED:-0} + ${LINE_MISSED:-0} ))
                 if [ $TOTAL_LINES -gt 0 ]; then
                     COVERAGE_PERCENT=$((LINE_COVERED * 100 / TOTAL_LINES))
                     
@@ -185,8 +193,8 @@ check_antipatterns() {
         VIOLATIONS_FOUND=$((VIOLATIONS_FOUND + 1))
     fi
     
-    # Check for missing assertions in tests
-    WEAK_TESTS=$(find src/test -name "*Test.java" -exec grep -L "assert\|verify\|expect" {} \; 2>/dev/null || true)
+    # Check for missing assertions in tests (include MockMvc andExpect)
+    WEAK_TESTS=$(find src/test -name "*Test.java" -exec grep -L "assert\|verify\|expect\|andExpect" {} \; 2>/dev/null || true)
     if [ -n "$WEAK_TESTS" ]; then
         echo -e "${YELLOW}⚠️  Test files with no assertions:${NC}"
         echo "$WEAK_TESTS" | sed 's/^/  - /'

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.controller</a> &gt; <span class="el_source">QuoteController.java</span></div><h1>QuoteController.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.controller;
+
+import com.autoinsurance.quote.dto.QuoteRequestDto;
+import com.autoinsurance.quote.dto.QuoteResponseDto;
+import com.autoinsurance.quote.service.QuoteService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
+import java.util.Map;
+
+@RestController
+@RequestMapping(&quot;/api/v1/quotes&quot;)
+@Tag(
+    name = &quot;Quote Management&quot;, 
+    description = &quot;API endpoints for auto insurance quote generation, retrieval, and premium calculations. &quot; +
+                  &quot;Supports comprehensive risk assessment, discount calculations, and quote lifecycle management.&quot;
+)
+@SecurityRequirement(name = &quot;bearerAuth&quot;)
+public class QuoteController {
+
+<span class="fc" id="L36">    private static final Logger log = LoggerFactory.getLogger(QuoteController.class);</span>
+    
+    private final QuoteService quoteService;
+    
+<span class="fc" id="L40">    public QuoteController(QuoteService quoteService) {</span>
+<span class="fc" id="L41">        this.quoteService = quoteService;</span>
+<span class="fc" id="L42">    }</span>
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(
+        summary = &quot;Generate Insurance Quote&quot;,
+        description = &quot;&quot;&quot;
+            Generates a comprehensive auto insurance quote based on vehicle information, driver profiles, 
+            and coverage requirements. Performs risk assessment, applies eligible discounts, and calculates 
+            both annual and monthly premium amounts.
+            
+            **Process Flow:**
+            1. Validates all input data (vehicle, drivers, coverage)
+            2. Calculates base premium using risk assessment algorithms
+            3. Applies eligible discounts (safe driver, multi-policy, etc.)
+            4. Generates quote with 30-day validity period
+            5. Saves quote for future retrieval
+            
+            **Risk Factors Considered:**
+            - Vehicle age, make, model, and current value
+            - Driver age, experience, and driving history
+            - Coverage amount and deductible selection
+            - Geographic location and usage patterns
+            &quot;&quot;&quot;,
+        tags = {&quot;Quote Generation&quot;}
+    )
+    @ApiResponses({
+        @ApiResponse(
+            responseCode = &quot;201&quot;,
+            description = &quot;Quote successfully generated&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                schema = @Schema(implementation = QuoteResponseDto.class),
+                examples = @ExampleObject(
+                    name = &quot;Successful Quote Generation&quot;,
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;quoteId&quot;: &quot;q-12345678-abcd-4567-89ef-123456789012&quot;,
+                            &quot;premium&quot;: 1200.00,
+                            &quot;monthlyPremium&quot;: 100.00,
+                            &quot;coverageAmount&quot;: 250000.00,
+                            &quot;deductible&quot;: 1000.00,
+                            &quot;validUntil&quot;: &quot;2024-09-15&quot;,
+                            &quot;discountsApplied&quot;: [
+                                &quot;Safe Driver Discount - 15%&quot;,
+                                &quot;Multi-Policy Discount - 10%&quot;
+                            ]
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;400&quot;,
+            description = &quot;Invalid request data - validation errors&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = {
+                    @ExampleObject(
+                        name = &quot;Driver Age Validation Error&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;message&quot;: &quot;Driver must be at least 18 years old. Current age: 17 years&quot;,
+                                &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                            }
+                            &quot;&quot;&quot;
+                    ),
+                    @ExampleObject(
+                        name = &quot;Vehicle VIN Validation Error&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;message&quot;: &quot;Invalid VIN format: INVALID123. Expected format: ^[A-HJ-NPR-Z0-9]{17}$&quot;,
+                                &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                            }
+                            &quot;&quot;&quot;
+                    )
+                }
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;401&quot;,
+            description = &quot;Authentication required&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = @ExampleObject(
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;message&quot;: &quot;Authentication token required&quot;,
+                            &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;500&quot;,
+            description = &quot;Internal server error during quote generation&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = @ExampleObject(
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;message&quot;: &quot;Failed to generate quote due to system error&quot;,
+                            &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        )
+    })
+    public ResponseEntity&lt;QuoteResponseDto&gt; createQuote(
+            @Parameter(
+                description = &quot;Quote request containing vehicle information, driver profiles, and coverage requirements&quot;,
+                required = true,
+                content = @Content(
+                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                    schema = @Schema(implementation = QuoteRequestDto.class),
+                    examples = @ExampleObject(
+                        name = &quot;Complete Quote Request&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;vehicle&quot;: {
+                                    &quot;make&quot;: &quot;Honda&quot;,
+                                    &quot;model&quot;: &quot;Accord&quot;,
+                                    &quot;year&quot;: 2021,
+                                    &quot;vin&quot;: &quot;1HGCV1F31JA123456&quot;,
+                                    &quot;currentValue&quot;: 30000.00
+                                },
+                                &quot;drivers&quot;: [
+                                    {
+                                        &quot;firstName&quot;: &quot;Jane&quot;,
+                                        &quot;lastName&quot;: &quot;Smith&quot;,
+                                        &quot;dateOfBirth&quot;: &quot;1990-03-20&quot;,
+                                        &quot;licenseNumber&quot;: &quot;S987654321&quot;,
+                                        &quot;licenseState&quot;: &quot;NY&quot;,
+                                        &quot;yearsOfExperience&quot;: 10,
+                                        &quot;safeDriverDiscount&quot;: true,
+                                        &quot;multiPolicyDiscount&quot;: true
+                                    }
+                                ],
+                                &quot;coverageAmount&quot;: 150000.00,
+                                &quot;deductible&quot;: 1000.00
+                            }
+                            &quot;&quot;&quot;
+                    )
+                )
+            )
+            @Valid @RequestBody QuoteRequestDto request) {
+<span class="fc" id="L189">        log.info(&quot;Creating new quote request&quot;);</span>
+        
+<span class="fc" id="L191">        QuoteResponseDto response = quoteService.generateQuote(request);</span>
+        
+<span class="fc" id="L193">        log.info(&quot;Quote created with ID: {} and premium: {}&quot;, response.getQuoteId(), response.getPremium());</span>
+        
+<span class="fc" id="L195">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+    }
+
+    @GetMapping(value = &quot;/{id}&quot;, produces = MediaType.APPLICATION_JSON_VALUE)
+    @Operation(
+        summary = &quot;Retrieve Insurance Quote&quot;,
+        description = &quot;&quot;&quot;
+            Retrieves a previously generated insurance quote by its unique identifier. 
+            Returns complete quote details including premium calculations, coverage information, 
+            and applied discounts.
+            
+            **Use Cases:**
+            - Review previously generated quotes
+            - Compare different quote options
+            - Retrieve quote details for policy conversion
+            - Customer service quote lookup
+            
+            **Performance:**
+            - Results are cached for optimal response times
+            - Average response time: &lt; 100ms
+            &quot;&quot;&quot;,
+        tags = {&quot;Quote Retrieval&quot;}
+    )
+    @ApiResponses({
+        @ApiResponse(
+            responseCode = &quot;200&quot;,
+            description = &quot;Quote found and retrieved successfully&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                schema = @Schema(implementation = QuoteResponseDto.class),
+                examples = @ExampleObject(
+                    name = &quot;Retrieved Quote&quot;,
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;quoteId&quot;: &quot;q-12345678-abcd-4567-89ef-123456789012&quot;,
+                            &quot;premium&quot;: 1200.00,
+                            &quot;monthlyPremium&quot;: 100.00,
+                            &quot;coverageAmount&quot;: 250000.00,
+                            &quot;deductible&quot;: 1000.00,
+                            &quot;validUntil&quot;: &quot;2024-09-15&quot;,
+                            &quot;discountsApplied&quot;: [
+                                &quot;Safe Driver Discount - 15%&quot;,
+                                &quot;Multi-Policy Discount - 10%&quot;
+                            ]
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;404&quot;,
+            description = &quot;Quote not found with the provided ID&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = @ExampleObject(
+                    name = &quot;Quote Not Found&quot;,
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;message&quot;: &quot;Quote not found with ID: q-nonexistent-quote-id&quot;,
+                            &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;400&quot;,
+            description = &quot;Invalid quote ID format&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = @ExampleObject(
+                    name = &quot;Invalid ID Format&quot;,
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;message&quot;: &quot;Quote ID cannot be null or empty&quot;,
+                            &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;401&quot;,
+            description = &quot;Authentication required&quot;
+        )
+    })
+    public ResponseEntity&lt;QuoteResponseDto&gt; getQuote(
+            @Parameter(
+                description = &quot;Unique identifier of the quote to retrieve&quot;,
+                required = true,
+                example = &quot;q-12345678-abcd-4567-89ef-123456789012&quot;
+            )
+            @PathVariable String id) {
+<span class="fc" id="L288">        log.info(&quot;Retrieving quote with ID: {}&quot;, id);</span>
+        
+<span class="fc" id="L290">        QuoteResponseDto response = quoteService.getQuoteById(id);</span>
+        
+<span class="fc bfc" id="L292" title="All 2 branches covered.">        if (response == null) {</span>
+<span class="fc" id="L293">            return ResponseEntity.notFound().build();</span>
+        }
+        
+<span class="fc" id="L296">        return ResponseEntity.ok(response);</span>
+    }
+
+    @PostMapping(
+        value = &quot;/calculate&quot;, 
+        consumes = MediaType.APPLICATION_JSON_VALUE, 
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    @Operation(
+        summary = &quot;Calculate Premium Only&quot;,
+        description = &quot;&quot;&quot;
+            Calculates the insurance premium without generating a full quote. This endpoint provides 
+            quick premium estimation for comparison shopping or preliminary cost assessment.
+            
+            **Use Cases:**
+            - Quick premium estimates for different coverage levels
+            - Comparison shopping between different vehicles or coverage options
+            - Cost assessment before full quote generation
+            - Integration with quote calculators and comparison tools
+            
+            **Calculation Process:**
+            1. Validates input data
+            2. Performs risk assessment calculations
+            3. Returns base premium (before discounts)
+            4. Does not save quote data or apply discounts
+            
+            **Performance:**
+            - Faster than full quote generation
+            - No database persistence
+            - Results cached for repeated requests
+            &quot;&quot;&quot;,
+        tags = {&quot;Premium Calculation&quot;}
+    )
+    @ApiResponses({
+        @ApiResponse(
+            responseCode = &quot;200&quot;,
+            description = &quot;Premium calculated successfully&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = @ExampleObject(
+                    name = &quot;Premium Calculation Result&quot;,
+                    value = &quot;&quot;&quot;
+                        {
+                            &quot;premium&quot;: 1350.50
+                        }
+                        &quot;&quot;&quot;
+                )
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;400&quot;,
+            description = &quot;Invalid request data - validation errors&quot;,
+            content = @Content(
+                mediaType = MediaType.APPLICATION_JSON_VALUE,
+                examples = {
+                    @ExampleObject(
+                        name = &quot;Missing Vehicle Information&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;message&quot;: &quot;Vehicle information is required&quot;,
+                                &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                            }
+                            &quot;&quot;&quot;
+                    ),
+                    @ExampleObject(
+                        name = &quot;Invalid Coverage Amount&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;message&quot;: &quot;Valid coverage amount is required&quot;,
+                                &quot;timestamp&quot;: &quot;2024-08-15T10:30:00Z&quot;
+                            }
+                            &quot;&quot;&quot;
+                    )
+                }
+            )
+        ),
+        @ApiResponse(
+            responseCode = &quot;401&quot;,
+            description = &quot;Authentication required&quot;
+        ),
+        @ApiResponse(
+            responseCode = &quot;500&quot;,
+            description = &quot;Premium calculation service error&quot;
+        )
+    })
+    public ResponseEntity&lt;Map&lt;String, BigDecimal&gt;&gt; calculatePremium(
+            @Parameter(
+                description = &quot;Quote request data for premium calculation (same format as quote generation)&quot;,
+                required = true,
+                content = @Content(
+                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                    schema = @Schema(implementation = QuoteRequestDto.class),
+                    examples = @ExampleObject(
+                        name = &quot;Premium Calculation Request&quot;,
+                        value = &quot;&quot;&quot;
+                            {
+                                &quot;vehicle&quot;: {
+                                    &quot;make&quot;: &quot;Toyota&quot;,
+                                    &quot;model&quot;: &quot;Camry&quot;,
+                                    &quot;year&quot;: 2020,
+                                    &quot;vin&quot;: &quot;4T1BF1FK1CU123456&quot;,
+                                    &quot;currentValue&quot;: 25000.00
+                                },
+                                &quot;drivers&quot;: [
+                                    {
+                                        &quot;firstName&quot;: &quot;John&quot;,
+                                        &quot;lastName&quot;: &quot;Doe&quot;,
+                                        &quot;dateOfBirth&quot;: &quot;1985-06-15&quot;,
+                                        &quot;licenseNumber&quot;: &quot;D123456789&quot;,
+                                        &quot;licenseState&quot;: &quot;CA&quot;,
+                                        &quot;yearsOfExperience&quot;: 12,
+                                        &quot;safeDriverDiscount&quot;: false,
+                                        &quot;multiPolicyDiscount&quot;: false
+                                    }
+                                ],
+                                &quot;coverageAmount&quot;: 200000.00,
+                                &quot;deductible&quot;: 500.00
+                            }
+                            &quot;&quot;&quot;
+                    )
+                )
+            )
+            @Valid @RequestBody QuoteRequestDto request) {
+<span class="fc" id="L419">        log.info(&quot;Calculating premium for quote request&quot;);</span>
+        
+<span class="fc" id="L421">        BigDecimal premium = quoteService.calculatePremium(request);</span>
+        
+<span class="fc" id="L423">        return ResponseEntity.ok(Map.of(&quot;premium&quot;, premium));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

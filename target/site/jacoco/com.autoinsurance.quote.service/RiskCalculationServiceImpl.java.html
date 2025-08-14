@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RiskCalculationServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Auto Insurance API</a> &gt; <a href="index.source.html" class="el_package">com.autoinsurance.quote.service</a> &gt; <span class="el_source">RiskCalculationServiceImpl.java</span></div><h1>RiskCalculationServiceImpl.java</h1><pre class="source lang-java linenums">package com.autoinsurance.quote.service;
+
+import com.autoinsurance.quote.dto.DriverDto;
+import com.autoinsurance.quote.dto.QuoteRequestDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Period;
+
+@Service
+<span class="fc" id="L15">public class RiskCalculationServiceImpl implements RiskCalculationService {</span>
+
+<span class="fc" id="L17">    private static final Logger log = LoggerFactory.getLogger(RiskCalculationServiceImpl.class);</span>
+    
+    @Value(&quot;${insurance.quote.base-premium:500.00}&quot;)
+    private BigDecimal basePremium;
+
+    @Override
+    public BigDecimal calculateBasePremium(QuoteRequestDto request) {
+<span class="fc" id="L24">        log.debug(&quot;Calculating base premium for coverage amount: {}&quot;, request.getCoverageAmount());</span>
+        
+<span class="fc" id="L26">        BigDecimal premium = basePremium;</span>
+        
+        // Coverage amount factor
+<span class="fc" id="L29">        BigDecimal coverageFactor = request.getCoverageAmount()</span>
+<span class="fc" id="L30">                .divide(BigDecimal.valueOf(100000), 2, java.math.RoundingMode.HALF_UP);</span>
+<span class="fc" id="L31">        premium = premium.multiply(coverageFactor);</span>
+        
+        // Deductible factor (lower deductible = higher premium)
+<span class="fc" id="L34">        BigDecimal deductibleFactor = BigDecimal.valueOf(1000)</span>
+<span class="fc" id="L35">                .divide(request.getDeductible(), 2, java.math.RoundingMode.HALF_UP);</span>
+<span class="fc" id="L36">        premium = premium.multiply(deductibleFactor);</span>
+        
+        // Vehicle age factor
+<span class="fc" id="L39">        int vehicleAge = LocalDate.now().getYear() - request.getVehicle().getYear();</span>
+<span class="fc" id="L40">        BigDecimal ageFactor = BigDecimal.valueOf(1.0 + (vehicleAge * 0.02)); // 2% increase per year</span>
+<span class="fc" id="L41">        premium = premium.multiply(ageFactor);</span>
+        
+        // Driver risk factors
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        for (DriverDto driver : request.getDrivers()) {</span>
+<span class="fc" id="L45">            premium = applyDriverRiskFactors(premium, driver);</span>
+<span class="fc" id="L46">        }</span>
+        
+<span class="fc" id="L48">        return premium.setScale(2, java.math.RoundingMode.HALF_UP);</span>
+    }
+    
+    private BigDecimal applyDriverRiskFactors(BigDecimal premium, DriverDto driver) {
+<span class="fc" id="L52">        int age = calculateAge(driver.getDateOfBirth());</span>
+        
+        // Age risk factor
+        BigDecimal ageRiskFactor;
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (age &lt; 25) {</span>
+<span class="fc" id="L57">            ageRiskFactor = BigDecimal.valueOf(1.5); // Higher risk for young drivers</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        } else if (age &lt; 65) {</span>
+<span class="fc" id="L59">            ageRiskFactor = BigDecimal.valueOf(1.0); // Standard risk</span>
+        } else {
+<span class="fc" id="L61">            ageRiskFactor = BigDecimal.valueOf(1.2); // Slightly higher risk for older drivers</span>
+        }
+        
+<span class="fc" id="L64">        premium = premium.multiply(ageRiskFactor);</span>
+        
+        // Experience factor
+<span class="fc" id="L67">        Integer yearsOfExperience = driver.getYearsOfExperience();</span>
+<span class="fc bfc" id="L68" title="All 4 branches covered.">        if (yearsOfExperience != null &amp;&amp; yearsOfExperience &gt; 5) {</span>
+<span class="fc" id="L69">            BigDecimal experienceFactor = BigDecimal.valueOf(0.95); // 5% discount for experienced drivers</span>
+<span class="fc" id="L70">            premium = premium.multiply(experienceFactor);</span>
+        }
+        
+<span class="fc" id="L73">        return premium;</span>
+    }
+    
+    private int calculateAge(LocalDate birthDate) {
+<span class="fc" id="L77">        return Period.between(birthDate, LocalDate.now()).getYears();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
